@@ -18,14 +18,14 @@ var app = express();
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
-const UserRouter = require("./Routes/user");
+const UserRouter = require("./Route/user");
 
 app.get("/test", async (req, res) => {
   res.status(200).send("test  hi");
 });
 
+// user routes
 app.use("/user", UserRouter);
-
 
 // Create and deploy your first functions
 // https://firebase.google.com/docs/functions/get-started

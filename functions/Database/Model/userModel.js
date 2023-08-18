@@ -1,4 +1,5 @@
 class User {
+  // User schema constructor
   constructor(id, firstName, lastName, email) {
     this.id = id;
     this.firstName = firstName;
@@ -6,6 +7,7 @@ class User {
     this.email = email;
   }
 
+  // using this to return data, get user data using id
   static fromData(id, data) {
     return new User(id, data.firstName, data.lastName, data.email);
   }
