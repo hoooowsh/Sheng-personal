@@ -8,8 +8,12 @@ class UserDAO {
   }
 
   // passing a user document to this helper and save it to database
-  async addUser(user) {
-    const userId = await firestoreService.addDocument("Users", user.toData());
+  async addUser(user, id) {
+    const userId = await firestoreService.addDocument(
+      "Users",
+      user.toData(),
+      id
+    );
     return userId;
   }
 

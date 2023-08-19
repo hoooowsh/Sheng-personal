@@ -1,16 +1,14 @@
 class User {
   // User schema constructor
-  constructor(id, firstName, lastName, email, salt) {
-    this.id = id;
+  constructor(firstName, lastName, email) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
-    this.salt = salt;
   }
 
   // using this to return data, get user data using id
-  static fromData(id, data) {
-    return new User(id, data.firstName, data.lastName, data.email);
+  static fromData(userId, data) {
+    return new User(userId, data.firstName, data.lastName, data.email);
   }
 
   // used for creating database entry
@@ -19,7 +17,6 @@ class User {
       firstName: this.firstName,
       lastName: this.lastName,
       email: this.email,
-      salt: this.salt,
     };
   }
 }

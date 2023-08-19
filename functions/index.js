@@ -19,6 +19,7 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 const UserRouter = require("./Route/user");
+const { globalErrorHandler } = require("./Helper/errorHandler");
 
 app.get("/test", async (req, res) => {
   res.status(200).send("test  hi");
@@ -26,6 +27,9 @@ app.get("/test", async (req, res) => {
 
 // user routes
 app.use("/user", UserRouter);
+
+// global error handler
+app.use(globalErrorHandler);
 
 // Create and deploy your first functions
 // https://firebase.google.com/docs/functions/get-started
