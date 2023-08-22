@@ -21,4 +21,8 @@ async function registerUser(req, res, next) {
   }
 }
 
-module.exports = { registerUser };
+async function getUserByName(req, res, next) {}
+
+async function getUserById(req, res, next) {}
+
+module.exports = { registerUser, getUserByName, getUserById };
