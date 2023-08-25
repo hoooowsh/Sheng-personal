@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  justify-content: space-between; // Positions items on both ends of the container
+  align-items: center; // Vertically centers items
+  background-color: #333;
+  padding: 1rem 2rem;
+  
+  .website-name {
+    color: white;
+    font-size: 1.5rem; // Adjust font size as needed
+    font-weight: bold; // Makes the text bold
+  }
+
+  .login-button {
+    background-color: #007bff; // A blue color, adjust as needed
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem; // Adjust padding as needed
+    border-radius: 4px; // Gives rounded corners
+    cursor: pointer; // Changes mouse cursor on hover
+
+    &:hover {
+      background-color: #0056b3; // A darker blue for hover effect
+    }
+  }
+}
