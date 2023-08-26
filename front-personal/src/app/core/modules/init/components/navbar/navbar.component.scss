@@ -1,21 +1,25 @@
-nav {
-  background-color: #333;
-  padding: 1rem 0;
-
+.main-nav {
+  // background-color: #333;
+  background-color: transparent;
   ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: space-around;
+    font-size: 1rem;
+    font-family: "Raleway", sans-serif;
+    font-family: "MuseoModerno", cursive;
 
     li {
       a {
+        display: block;
+        padding: 0.8rem 1.2rem;
         color: white;
         text-decoration: none;
 
         &:hover {
-          text-decoration: underline;
+          background-color: #707070;
         }
       }
     }

@@ -5,10 +5,21 @@ import { InitRoutingModule } from './init-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 @NgModule({
-  declarations: [FooterComponent, NavbarComponent, HeaderComponent],
+  declarations: [
+    FooterComponent,
+    NavbarComponent,
+    HeaderComponent,
+    HomepageComponent,
+  ],
   imports: [CommonModule, InitRoutingModule],
-  exports: [FooterComponent, NavbarComponent, HeaderComponent],
+  exports: [
+    FooterComponent,
+    NavbarComponent,
+    HeaderComponent,
+    HomepageComponent,
+  ],
 })
 export class InitModule {}

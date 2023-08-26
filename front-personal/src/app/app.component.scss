@@ -1,0 +1,22 @@
+#app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.header-navbar-container {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-image: url("../assets/image/header.gif");
+  background-position: 60% 80%; // Moves the GIF a bit upward compared to the center
+  background-size: 100% auto; // This will make the width of the GIF 80% of the container's width and adjust the height automatically
+  background-repeat: no-repeat; // This ensures the GIF doesn't repeat
+}
+
+.main-content {
+  flex: 1;
+  background-color: #333; // Or any dark color you prefer
+  color: #fff; // Ensuring text is readable against the dark background
+  overflow-y: auto; // Allows for scrolling if the content exceeds the viewport height
+}
