@@ -4,23 +4,39 @@
   align-items: center; // Vertically centers items
   background-color: #333;
   padding: 1rem 2rem;
-  
-  .website-name {
-    color: white;
-    font-size: 1.5rem; // Adjust font size as needed
-    font-weight: bold; // Makes the text bold
-  }
 
+  .logo-container {
+    display: flex; // To align the logo and website name horizontally
+    align-items: center; // Vertically align the logo and website name
+
+    .logo {
+      width: 60px; // Adjust the width as needed
+      height: auto; // Maintains the aspect ratio of the logo
+      margin-right: 10px; // Spacing between the logo and website name
+    }
+
+    .website-name {
+      color: white;
+      font-size: 1.9rem;
+      font-weight: bold;
+      font-family: "Raleway", sans-serif;
+      font-family: "Sacramento", cursive;
+    }
+  }
   .login-button {
-    background-color: #007bff; // A blue color, adjust as needed
+    background-color: #707070; // A blue color, adjust as needed
     color: white;
     border: none;
+    font-size: 1.2rem; // Increase font size
+    font-family: "Raleway", sans-serif;
+    font-family: "MuseoModerno", cursive;
+
     padding: 0.5rem 1rem; // Adjust padding as needed
     border-radius: 4px; // Gives rounded corners
     cursor: pointer; // Changes mouse cursor on hover
 
     &:hover {
-      background-color: #0056b3; // A darker blue for hover effect
+      background-color: #969595; // A darker blue for hover effect
     }
   }
 }
