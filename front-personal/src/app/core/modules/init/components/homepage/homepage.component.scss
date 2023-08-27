@@ -177,3 +177,67 @@
     }
   }
 }
+
+.me {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center; // Center waves horizontally
+
+  .and-container {
+    display: flex; // Use Flexbox
+    align-items: center; // Vertically center the content
+    justify-content: center; // Center waves horizontally
+
+    h2 {
+      margin-right: 10px; // Adds some space to the right of the title
+    }
+
+    img {
+      max-width: 50px; // Or whatever size you prefer for the GIF
+      height: auto; // Maintain aspect ratio
+    }
+  }
+
+  .me-content {
+    flex: 1;
+    padding: 0 2rem;
+    align-items: center; // Centers children horizontally
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-family: "Raleway", sans-serif;
+    font-family: "MuseoModerno", cursive;
+    display: flex;
+    justify-content: center; /* align horizontally */
+    align-items: center; /* align vertically */
+  }
+
+  h3 {
+    font-size: 2rem;
+    color: #b8bad3; // Use a slightly lighter color for the tagline
+    margin-bottom: 1.5rem;
+    font-family: "Raleway", sans-serif;
+    font-family: "MuseoModerno", cursive;
+    display: flex;
+    justify-content: center; /* align horizontally */
+    align-items: center; /* align vertically */
+  }
+
+  p {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    line-height: 1.5; // Better readability for blocks of text
+    font-family: "Concert One", cursive;
+    justify-content: center; /* align horizontally */
+    align-items: center; /* align vertically */
+    text-align: center; // This centers the text within the <p> tag
+
+    span {
+      color: #6a95c2;
+      font-family: "Concert One", cursive;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "sheng-persona": {
+      "hosting": {
+        "front-personal": [
+          "sheng-persona"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "sheng-persona"
+  }
+}
