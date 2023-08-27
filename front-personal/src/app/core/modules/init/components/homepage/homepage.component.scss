@@ -7,6 +7,7 @@
   .introduction-content {
     flex: 1;
     padding: 0 2rem;
+    align-items: center; // Centers children horizontally
 
     h1 {
       font-size: 2.5rem;
@@ -34,6 +35,10 @@
       margin-bottom: 2rem;
       line-height: 1.5; // Better readability for blocks of text
       font-family: "Sedgwick Ave Display", cursive;
+      justify-content: center; /* align horizontally */
+      align-items: center; /* align vertically */
+      text-align: center; // This centers the text within the <p> tag
+
       span {
         color: #6a95c2;
         font-family: "Concert One", cursive;
@@ -55,7 +60,7 @@
   .introduction-image {
     position: relative;
     display: inline-block;
-    width: 50%; // Set this to your preferred width
+    width: 500px; // Set this to your preferred width
     height: auto; // It scales with the width, maintaining aspect ratio
 
     img {
@@ -79,5 +84,96 @@
 
   .greeting {
     min-height: 65px; // Adjust as needed based on your font size and desired spacing
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .center {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+  }
+
+  .loading {
+    display: flex;
+    flex-direction: row; // Display waves in a row
+    justify-content: center; // Center waves horizontally
+    align-items: center; // Center waves vertically
+    width: 100%; // Take the full width of its parent
+    gap: 10px; // Creates a gap between th
+
+    & .wave {
+      width: 5px;
+      height: 100px;
+      background: linear-gradient(45deg, cyan, #fff);
+      margin: 10px;
+      animation: wave 1s linear infinite;
+      border-radius: 20px;
+      align-items: center;
+
+      &:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      &:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+      &:nth-child(5) {
+        animation-delay: 0.4s;
+      }
+      &:nth-child(6) {
+        animation-delay: 0.5s;
+      }
+      &:nth-child(7) {
+        animation-delay: 0.6s;
+      }
+      &:nth-child(8) {
+        animation-delay: 0.7s;
+      }
+      &:nth-child(9) {
+        animation-delay: 0.8s;
+      }
+      &:nth-child(10) {
+        animation-delay: 0.9s;
+      }
+      &:nth-child(10) {
+        animation-delay: 0.9s;
+      }
+      &:nth-child(11) {
+        animation-delay: 1s;
+      }
+      &:nth-child(12) {
+        animation-delay: 1.1s;
+      }
+      &:nth-child(13) {
+        animation-delay: 1.2s;
+      }
+      &:nth-child(14) {
+        animation-delay: 1.3s;
+      }
+      &:nth-child(15) {
+        animation-delay: 1.4s;
+      }
+    }
+  }
+
+  @keyframes wave {
+    0% {
+      transform: scale(0);
+    }
+    50% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
   }
 }
