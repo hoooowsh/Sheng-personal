@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-header',
@@ -7,17 +8,26 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private userService: UserService
+  ) {}
 
-  signInWithGoogle() {
-    this.authService
-      .googleSignIn()
-      .then((result) => {
-        console.log('Successfully signed in with Google:', result);
-        // Handle the signed-in user here.
-      })
-      .catch((error) => {
-        console.error('Error during sign in:', error);
-      });
+  async signInWithGoogle() {
+    try {
+      const result = await this.authService.googleSignIn();
+      console.log('Successfully signed in with Google:', result);
+
+      (await this.userService.registerUser()).subscribe(
+        (response) => {
+          console.log('User registered successfully:', response);
+        },
+        (error) => {
+          console.error('Error during user registration:', error);
+        }
+      );
+    } catch (error) {
+      console.error('Error during sign in:', error);
+    }
   }
 }
