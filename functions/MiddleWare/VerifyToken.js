@@ -46,9 +46,6 @@ async function VerifyFirebaseToken(value, { req }) {
   if (!uid || !email) {
     throw new Error("Could not validate Firebase Token");
   }
-  req.body.tokenUserId = uid;
-  req.body.tokenEmail = email;
-
   return true;
 }
 
