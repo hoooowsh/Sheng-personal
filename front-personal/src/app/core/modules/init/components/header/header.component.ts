@@ -18,7 +18,7 @@ export class HeaderComponent {
       const result = await this.authService.googleSignIn();
       console.log('Successfully signed in with Google:', result);
 
-      (await this.userService.registerUser()).subscribe(
+      (await this.userService.signinUser()).subscribe(
         (response) => {
           console.log('User registered successfully:', response);
         },

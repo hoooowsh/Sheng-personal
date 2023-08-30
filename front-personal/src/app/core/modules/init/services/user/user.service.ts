@@ -9,7 +9,7 @@ import { AuthService } from '../auth.service';
 export class UserService {
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  async registerUser() {
+  async signinUser() {
     const userDetails = await this.authService.getUserRegisterDetails();
     console.log('userdetials', userDetails);
 
@@ -21,7 +21,7 @@ export class UserService {
     };
 
     return this.http.post(
-      `${environment.backendUrl}/user/registerUser`,
+      `${environment.backendUrl}/user/login`,
       userDetails,
       httpOptions
     );

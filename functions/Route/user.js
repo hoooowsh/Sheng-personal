@@ -2,7 +2,7 @@ const express = require("express");
 const UserRouter = express.Router();
 require("dotenv").config();
 const {
-  registerUser,
+  loginUser,
   getUserByName,
   getUserById,
 } = require("../Controller/userController");
@@ -11,12 +11,7 @@ const {
   AuthValidate,
 } = require("../MiddleWare/VerifyToken");
 
-UserRouter.post(
-  "/registerUser",
-  FirebaseTokenValidator(),
-  AuthValidate,
-  registerUser
-);
+UserRouter.post("/login", FirebaseTokenValidator(), AuthValidate, loginUser);
 
 UserRouter.post("/getUser", getUserByName);
 

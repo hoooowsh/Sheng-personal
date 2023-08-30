@@ -20,14 +20,22 @@ class UserDAO {
   // editing a user by id
   async editUser(user, id) {}
 
-  async getUsersByName(name) {
+  async deleteUser(id) {
+    await firestoreService.deleteDocument("Users", id);
+  }
+
+  async getUserByEmail(email) {
     const data = await firestoreService.queryCollection(
       "Users",
-      "name",
+      "email",
       "==",
-      name
+      email
     );
-    return data.map((item) => User.fromData(item.id, item));
+    // If data is not empty, return the first user object
+    if (data.length > 0) {
+      return User.fromData(data[0].id, data[0]);
+    }
+    return null;
   }
 }
 

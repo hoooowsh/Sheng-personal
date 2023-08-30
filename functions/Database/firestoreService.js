@@ -15,14 +15,18 @@ module.exports = {
 
   // add data
   async addDocument(collection, data, id) {
-    console.log("wtf", collection, data, id);
     const docRef = await db.collection(collection).doc(id);
     await docRef.set(data);
 
-    console.log("finish testing");
     return docRef.id;
   },
 
+  // delete data
+  async deleteDocument(collection, documentId) {
+    await db.collection(collection).doc(documentId).delete();
+    return;
+  },
+  
   // give query to get data that satisfy the constriant
   // queryCollection('Users', 'age', '>=', 21)
   async queryCollection(collection, field, operator, value) {

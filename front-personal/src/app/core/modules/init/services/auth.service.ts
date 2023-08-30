@@ -28,16 +28,12 @@ export class AuthService {
     const user = this.auth.currentUser;
 
     if (user) {
-      const { displayName, email, uid } = user;
+      const { displayName } = user;
       const name = displayName;
-      console.log({ displayName, email, uid });
       return {
         name: name,
-        email: email || '',
-        userId: uid || '',
       };
     }
-
     throw new Error('User not authenticated');
   }
 
