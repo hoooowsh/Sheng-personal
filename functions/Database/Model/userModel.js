@@ -1,22 +1,22 @@
 class User {
   // User schema constructor
-  constructor(firstName, lastName, email) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+  constructor(name, email, isAdmin) {
+    this.name = name;
     this.email = email;
+    this.isAdmin = isAdmin;
   }
 
   // using this to return data, get user data using id
   static fromData(userId, data) {
-    return new User(userId, data.firstName, data.lastName, data.email);
+    return new User(userId, data.name, data.email, data.isAdmin);
   }
 
   // used for creating database entry
   toData() {
     return {
-      firstName: this.firstName,
-      lastName: this.lastName,
+      name: this.name,
       email: this.email,
+      isAdmin: this.isAdmin,
     };
   }
 }

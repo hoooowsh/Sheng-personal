@@ -29,19 +29,23 @@ export class AuthService {
 
     if (user) {
       const { displayName, email, uid } = user;
-
-      // Split display name to first and last name (if applicable)
-      const [firstName, ...lastNameParts] = (displayName || '').split(' ');
-      const lastName = lastNameParts.join(' ');
-
+      const name = displayName;
+      console.log({ displayName, email, uid });
       return {
-        firstName: firstName || '',
-        lastName: lastName || '',
+        name: name,
         email: email || '',
         userId: uid || '',
       };
     }
 
+    throw new Error('User not authenticated');
+  }
+
+  async getUserToken() {
+    const user = this.auth.currentUser;
+    if (user) {
+      return await user.getIdToken();
+    }
     throw new Error('User not authenticated');
   }
 }

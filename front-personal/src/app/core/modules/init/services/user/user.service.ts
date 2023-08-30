@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth.service';
 
@@ -11,10 +11,19 @@ export class UserService {
 
   async registerUser() {
     const userDetails = await this.authService.getUserRegisterDetails();
+    console.log('userdetials', userDetails);
+
+    const token = await this.authService.getUserToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + token,
+      }),
+    };
 
     return this.http.post(
       `${environment.backendUrl}/user/registerUser`,
-      userDetails
+      userDetails,
+      httpOptions
     );
   }
 }

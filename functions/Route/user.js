@@ -6,8 +6,17 @@ const {
   getUserByName,
   getUserById,
 } = require("../Controller/userController");
+const {
+  FirebaseTokenValidator,
+  AuthValidate,
+} = require("../MiddleWare/VerifyToken");
 
-UserRouter.post("/registerUser", registerUser);
+UserRouter.post(
+  "/registerUser",
+  FirebaseTokenValidator(),
+  AuthValidate,
+  registerUser
+);
 
 UserRouter.post("/getUser", getUserByName);
 

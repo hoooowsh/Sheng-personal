@@ -18,16 +18,14 @@ class UserDAO {
   }
 
   // editing a user by id
-  async editUser(user, id) {
-    
-  }
+  async editUser(user, id) {}
 
-  async getUsersByFirstName(firstName) {
+  async getUsersByName(name) {
     const data = await firestoreService.queryCollection(
       "Users",
-      "firstName",
+      "name",
       "==",
-      firstName
+      name
     );
     return data.map((item) => User.fromData(item.id, item));
   }
