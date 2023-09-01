@@ -178,6 +178,41 @@
   }
 }
 
+.portfolio {
+  display: flex;
+  justify-content: center; // Centers horizontally
+  align-items: center; // Centers vertically
+  font-size: 1.2rem;
+  font-family: "Anton", sans-serif;
+
+  > div {
+    text-align: center;
+  }
+  .button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .portfolio-button {
+    background-color: #0258f7;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 50px;
+    margin: 0 10px; /* This will create space between the button and the emojis */
+    &:hover {
+      background-color: #a80303;
+    }
+    .emoji-left,
+    .emoji-right {
+      font-size: 2rem; /* Adjust size if necessary */
+    }
+  }
+}
+
 .me {
   display: flex;
   justify-content: space-between;
