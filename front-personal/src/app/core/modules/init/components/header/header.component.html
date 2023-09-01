@@ -7,5 +7,14 @@
     />
     <div class="website-name">Sheng's Web</div>
   </div>
-  <button class="login-button" (click)="signInWithGoogle()">Login</button>
+
+  <!-- Display username if user is logged in -->
+  <div *ngIf="user" class="user-info">Welcome, {{ user.displayName }}!</div>
+  <!-- Change button based on user's login status -->
+  <button *ngIf="!user" class="login-button" (click)="signInWithGoogle()">
+    Login
+  </button>
+  <button *ngIf="user" class="login-button" (click)="signOutWithGoogle()">
+    Logout
+  </button>
 </header>

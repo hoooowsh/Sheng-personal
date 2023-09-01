@@ -8,10 +8,16 @@ import { UserService } from '../../services/user/user.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  user: any = null;
+
   constructor(
     private authService: AuthService,
     private userService: UserService
-  ) {}
+  ) {
+    this.authService.userState.subscribe((user) => {
+      this.user = user;
+    });
+  }
 
   async signInWithGoogle() {
     try {
@@ -29,5 +35,18 @@ export class HeaderComponent {
     } catch (error) {
       console.error('Error during sign in:', error);
     }
+  }
+
+  async signOutWithGoogle() {
+    try {
+      await this.authService.googleSignOut();
+      this.user = null;
+    } catch (error) {
+      console.error('Error during sign in:', error);
+    }
+  }
+
+  async test() {
+    console.log(this.user);
   }
 }
