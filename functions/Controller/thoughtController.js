@@ -1,19 +1,19 @@
-const UserDAO = require("../Database/DAO/userDAO");
-const User = require("../Database/Model/userModel");
+const ThoughtDAO = require("../Database/DAO/thoughtDAO");
+const Thought = require("../Database/Model/thoughtModel");
 const AppError = require("../Util/AppError");
 const { isAdmin } = require("../Helper/admin");
 
-async function loginUser(req, res, next) {
+async function AddComment(req, res, next) {
   try {
     // getting value from request body
-    const { name, tokenUserId, tokenEmail } = req.body;
-    if (!name) {
+    const { tokenUserId, tokenEmail, content, date, comment } = req.body;
+    if (!content || !date || !comment) {
       throw new AppError("Missing required field", 400);
     }
     console.log(req.body);
 
     // if the user with correct id is in database already, sign him in directly
-    let user;
+    let thought;
     user = await UserDAO.getUserById(tokenUserId);
     if (user) {
       res.status(200).send({ tokenUserId });
