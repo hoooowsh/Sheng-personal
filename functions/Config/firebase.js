@@ -25,10 +25,11 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = admin.initializeApp(firebaseConfig);
-const database = admin.firestore(); // The firestore database which we will be using.
-const auth = admin.auth();
+admin.initializeApp(firebaseConfig);
+const db = admin.firestore(); // The firestore database which we will be using.
+const firestore = admin.firestore;
 module.exports = {
   admin,
-  database,
+  db,
+  firestore,
 };
