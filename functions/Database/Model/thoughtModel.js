@@ -1,40 +1,34 @@
 class Thought {
-  // User schema constructor
-  constructor(ownerId, ownerEmail, title, content, date, comment) {
-    this.ownerId = ownerId;
-    this.ownerEmail = ownerEmail;
+  /**
+   * Thought model constructor
+   * @param {String} title - the title of the thought
+   * @param {String} content - the content of the thought
+   * @param {Date} date - data object for storing date
+   */
+  constructor(title, content, date) {
     this.title = title;
     this.content = content;
     this.date = date;
-    this.comment = comment;
   }
 
-  // using this to return data, get user data using id
-  static fromData(data) {
-    return new Thought(data.name, data.email, data.isAdmin);
+  /**
+   * Helper function to return data, get thought data using id
+   * @param {Object} data - thought object get from database
+   * @returns Thought object
+   */
+  fromFirestore(data) {
+    return new Thought(data.title, data.content, data.date);
   }
 
-  // using this to return data, get user data using id
-  static fromDataNoId(data) {
-    return {
-      ownerEmail: data.ownerEmail,
-      title: data.title,
-      content: data.content,
-      date: data.date,
-      comment: data.comment,
-    };
-  }
-
-  // used for creating database entry
+  /**
+   * Helper function to create thought instance in database
+   * @returns An object that has all docs for a thought instance in database
+   */
   toData() {
-    console.log("22");
     return {
-      ownerId: this.ownerId,
-      ownerEmail: this.ownerEmail,
       title: this.title,
       content: this.content,
       date: this.date,
-      comment: this.comment,
     };
   }
 }

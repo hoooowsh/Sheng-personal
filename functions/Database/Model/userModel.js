@@ -13,14 +13,13 @@ class User {
     this.isAdmin = isAdmin;
   }
 
-  // Helper function to return data, get user data using id
   /**
    * Helper function to get data from database for User
    * @param {String} userId - search key for user, used in both firebase Auth and firestore
    * @param {Object} data - user object get from database
    * @returns User object
    */
-  static fromFirestore(userId, data) {
+  fromFirestore(userId, data) {
     return new User(userId, data.name, data.email, data.isAdmin);
   }
 

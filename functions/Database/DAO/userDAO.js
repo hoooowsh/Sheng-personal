@@ -65,24 +65,6 @@ class UserDAO {
   async deleteUser(id) {
     await firestoreService.deleteDocument("Users", id);
   }
-
-  /**
-   * Helper function to add a thought to User document
-   * @param {String} userId - user id
-   * @param {String} thoughtId - thought id as search key in database
-   * @param {String} thoughtTitle - thought title
-   */
-  async addToUserThoughts(userId, thoughtId, thoughtTitle) {
-    await firestoreService.addToFirstLevelMap(
-      "Users",
-      userId,
-      "thoughts",
-      thoughtId,
-      {
-        thoughtTitle: thoughtTitle,
-      }
-    );
-  }
 }
 
 module.exports = new UserDAO();
