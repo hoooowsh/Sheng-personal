@@ -1,12 +1,12 @@
 const express = require("express");
 const ThoughtRoute = express.Router();
 require("dotenv").config();
-const { loginUser } = require("../Controller/userController");
+const { addThought } = require("../Controller/thoughtController");
 const {
   FirebaseTokenValidator,
   AuthValidate,
 } = require("../MiddleWare/VerifyToken");
 
-UserRouter.post("/login", FirebaseTokenValidator(), AuthValidate, loginUser);
+ThoughtRoute.post("/addThought", addThought);
 
-module.exports = UserRouter;
+module.exports = ThoughtRoute;

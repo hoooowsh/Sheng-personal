@@ -14,10 +14,14 @@ module.exports = {
   },
 
   // add data
-  async addDocument(collection, data, id) {
-    const docRef = await db.collection(collection).doc(id);
-    await docRef.set(data);
-
+  async addDocument(collection, data, id = null) {
+    let docRef;
+    if (id) {
+      docRef = await db.collection(collection).doc(id);
+      await docRef.set(data);
+    } else {
+      docRef = await db.collection(collection).add(data);
+    }
     return docRef.id;
   },
 
@@ -26,7 +30,7 @@ module.exports = {
     await db.collection(collection).doc(documentId).delete();
     return;
   },
-  
+
   // give query to get data that satisfy the constriant
   // queryCollection('Users', 'age', '>=', 21)
   async queryCollection(collection, field, operator, value) {

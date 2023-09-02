@@ -9,6 +9,7 @@ class ThoughtDAO {
 
   // passing a thought document to this helper and save it to database
   async addThought(thought) {
+    console.log("33", thought.toData());
     const thoughtId = await firestoreService.addDocument(
       "Thoughts",
       thought.toData()
@@ -17,7 +18,7 @@ class ThoughtDAO {
   }
 
   // editing a user by id
-  async editUser(user, id) {}
+  async editThought(user, id) {}
 
   async deleteThought(id) {
     await firestoreService.deleteDocument("Thoughts", id);

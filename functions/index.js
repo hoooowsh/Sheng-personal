@@ -19,6 +19,7 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 const UserRouter = require("./Route/user");
+const ThoughtRoute = require("./Route/thought");
 const { globalErrorHandler } = require("./Helper/errorHandler");
 
 app.get("/test", async (req, res) => {
@@ -27,6 +28,9 @@ app.get("/test", async (req, res) => {
 
 // user routes
 app.use("/user", UserRouter);
+
+// thought routes
+app.use("/thought", ThoughtRoute);
 
 // global error handler
 app.use(globalErrorHandler);
