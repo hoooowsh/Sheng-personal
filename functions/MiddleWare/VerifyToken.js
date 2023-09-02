@@ -1,4 +1,4 @@
-const firebase = require("firebase-admin");
+const { admin } = require("../Config/firebase");
 const {
   header,
   validationResult,
@@ -23,7 +23,7 @@ const errorResponses = {
  * @returns Decoded firebase auth token.
  */
 async function ValidateIDToken(token) {
-  let decodedToken = await firebase
+  let decodedToken = await admin
     .auth()
     .verifyIdToken(token)
     .catch((err) => {
