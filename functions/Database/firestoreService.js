@@ -18,7 +18,7 @@ module.exports = {
    * @param {String} collection - the collection name, "Users" for exmaple
    * @param {String} documentId - document id, search key in database
    * @param {Object} data - data object for updating database
-   * @returns None
+   * @returns Void
    */
   async setDocument(collection, documentId, data) {
     await db.collection(collection).doc(documentId).set(data);
@@ -47,7 +47,7 @@ module.exports = {
    * First level delete document content helper function for general use cases
    * @param {String} collection - the collection name, "Users" for exmaple
    * @param {String} documentId - document id, search key in databasem
-   * @returns None
+   * @returns Void
    */
   async deleteDocument(collection, documentId) {
     await db.collection(collection).doc(documentId).delete();

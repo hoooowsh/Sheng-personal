@@ -20,8 +20,7 @@ class User {
    * @param {Object} data - user object get from database
    * @returns User object
    */
-  static fromData(userId, data) {
-    console.log(userId, data);
+  static fromFirestore(userId, data) {
     return new User(userId, data.name, data.email, data.isAdmin);
   }
 
@@ -29,7 +28,7 @@ class User {
    * Helper function to create user instance in database
    * @returns An object that has all docs for a user instance in database
    */
-  toData() {
+  toFirestore() {
     return {
       name: this.name,
       email: this.email,
