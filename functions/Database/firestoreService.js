@@ -31,6 +31,31 @@ module.exports = {
     return;
   },
 
+  async editFirstLevelArray(
+    collection,
+    documentId,
+    field,
+    value,
+    operation = "set"
+  ) {
+    const docRef = db.collection(collection).doc(documentId);
+    let updateData;
+
+    // do the operation
+    switch (operation) {
+      case "arrayRemove":
+        updateData = { [field]: admin.firestore.FieldValue.arrayRemove(value) };
+        break;
+      case "arrayAdd":
+        updateData = { [field]: admin.firestore.FieldValue.increment(value) };
+        break;
+      default:
+        updateData = { [field]: value };
+        break;
+    }
+    await docRef.update(updateData);
+  },
+
   // give query to get data that satisfy the constriant
   // queryCollection('Users', 'age', '>=', 21)
   async queryCollection(collection, field, operator, value) {
