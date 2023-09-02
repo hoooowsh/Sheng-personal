@@ -1,6 +1,5 @@
 const firestoreService = require("./../firestoreService");
 const User = require("../Model/userModel");
-const AppError = require("../../Util/AppError");
 
 class UserDAO {
   /**

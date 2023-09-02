@@ -121,4 +121,52 @@ module.exports = {
     }
     return docRef.id;
   },
+
+  /**
+   * Second level update document content helper function for general use cases
+   * @param {String} collectionL1 - first level collection name
+   * @param {String} documentIdL1 - first level document id
+   * @param {String} collectionL2 - second level collection name
+   * @param {String} documentIdL2 - second level document id
+   * @param {Object} data - data object for adding to database
+   * @returns Void
+   */
+  async setDocument(
+    collectionL1,
+    documentIdL1,
+    collectionL2,
+    documentIdL2,
+    data
+  ) {
+    await db
+      .collection(collectionL1)
+      .doc(documentIdL1)
+      .collection(collectionL2)
+      .doc(documentIdL2)
+      .set(data);
+    return;
+  },
+
+  /**
+   * Second level delete document content helper function for general use cases
+   * @param {String} collectionL1 - first level collection name
+   * @param {String} documentIdL1 - first level document id
+   * @param {String} collectionL2 - second level collection name
+   * @param {String} documentIdL2 - second level document id
+   * @returns Void
+   */
+  async deleteDocumentL2(
+    collectionL1,
+    documentIdL1,
+    collectionL2,
+    documentIdL2
+  ) {
+    await db
+      .collection(collectionL1)
+      .doc(documentIdL1)
+      .collection(collectionL2)
+      .doc(documentIdL2)
+      .delete();
+    return;
+  },
 };

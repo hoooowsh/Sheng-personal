@@ -24,7 +24,7 @@ class Thought {
    * Helper function to create thought instance in database
    * @returns An object that has all docs for a thought instance in database
    */
-  toData() {
+  toFirestore() {
     return {
       title: this.title,
       content: this.content,
