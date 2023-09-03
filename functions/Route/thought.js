@@ -1,7 +1,11 @@
 const express = require("express");
 const ThoughtRoute = express.Router();
 require("dotenv").config();
-const { addThought, getThought } = require("../Controller/thoughtController");
+const {
+  addThought,
+  getThought,
+  getThoughtList,
+} = require("../Controller/thoughtController");
 const {
   FirebaseTokenValidator,
   AuthValidate,
@@ -9,6 +13,8 @@ const {
 
 ThoughtRoute.post("/add", FirebaseTokenValidator(), AuthValidate, addThought);
 
-ThoughtRoute.get("/:thoughtId", getThought);
+ThoughtRoute.get("/id/:thoughtId", getThought);
+
+ThoughtRoute.get("/thoughtList", getThoughtList);
 
 module.exports = ThoughtRoute;

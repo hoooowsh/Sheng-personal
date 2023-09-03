@@ -43,16 +43,35 @@ async function getThought(req, res, next) {
   try {
     const thoughtId = req.params.thoughtId;
 
-    // first get admin Id
-    const adminInfo = await UserDAO.getUserByEmail(process.env.ADMIN_EMAIL);
-    const adminId = adminInfo.id;
+    // first get user Id
+    const userInfo = await UserDAO.getUserByEmail(process.env.ADMIN_EMAIL);
+    const userId = userInfo.id;
 
     // get thought using admin Id and thought Id
-    const thought = await ThoughtDAO.getThoughtById(adminId, thoughtId);
+    const thought = await ThoughtDAO.getThoughtById(userId, thoughtId);
     res.status(200).send({ thought: thought });
   } catch (error) {
     next(error);
   }
 }
 
-module.exports = { addThought, getThought };
+/**
+ * Get all thoughts controller using userId
+ * @param {*} req - contains: Null
+ * @param {*} res - contains: thoughts list
+ * @param {*} next - next to Error Handler
+ */
+async function getThoughtList(req, res, next) {
+  try {
+    // first get admin Id
+    const userInfo = await UserDAO.getUserByEmail(process.env.ADMIN_EMAIL);
+    const userId = userInfo.id;
+    console.log("wtf");
+    const thoughtList = await ThoughtDAO.getThoughtList(userId);
+    res.status(200).send({ thoughtList: thoughtList });
+  } catch (error) {
+    next(error);
+  }
+}
+
+module.exports = { addThought, getThought, getThoughtList };

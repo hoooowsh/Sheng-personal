@@ -169,4 +169,39 @@ module.exports = {
       .delete();
     return;
   },
+
+  /**
+   * Second level get the whole collection
+   * @param {*} collectionL1
+   * @param {*} documentIdL1
+   * @param {*} collectionL2
+   * @returns
+   */
+  async getCollectionL2(collectionL1, documentIdL1, collectionL2, condition) {
+    const collectionVal = db
+      .collection(collectionL1)
+      .doc(documentIdL1)
+      .collection(collectionL2);
+    const snapshot = await collectionVal.get();
+    console.log("snapshot", snapshot);
+    if (snapshot.empty) {
+      return null;
+    }
+    let result = [];
+    switch (condition) {
+      case "thoughtList":
+        console.log("here");
+        snapshot.forEach((doc) => {
+          const data = doc.data();
+          result.push({
+            id: doc.id,
+            title: data.title,
+            date: data.date,
+          });
+        });
+        return result;
+      default:
+        return snapshot;
+    }
+  },
 };

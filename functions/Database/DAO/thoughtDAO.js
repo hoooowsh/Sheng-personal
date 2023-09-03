@@ -19,6 +19,22 @@ class ThoughtDAO {
   }
 
   /**
+   * Get all thoughts as a list
+   * @param {String} userId - user id
+   * @returns List of all thoughts
+   */
+  async getThoughtList(userId) {
+    console.log("heresadfF");
+    const result = await firestoreService.getCollectionL2(
+      "Users",
+      userId,
+      "Thoughts",
+      "thoughtList"
+    );
+    return result;
+  }
+
+  /**
    * Add thought using userId and Thought object
    * @param {String} userId - user Id as a search key in database
    * @param {Thought} thought - a Thought Object
