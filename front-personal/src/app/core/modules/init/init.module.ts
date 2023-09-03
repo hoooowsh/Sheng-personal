@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ThoughtListPageComponent } from './components/thought-list-page/thought-list-page.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     HeaderComponent,
     HomepageComponent,
+    ThoughtListPageComponent,
   ],
   imports: [CommonModule, InitRoutingModule, HttpClientModule],
   exports: [
