@@ -2,40 +2,53 @@ const firestoreService = require("./../firestoreService");
 const Thouhgt = require("../Model/thoughtModel");
 
 class ThoughtDAO {
-  async getThoughtById(id) {
-    const data = await firestoreService.getDocument("Thoughts", id);
+  /**
+   * Get thought using thoughtId as a key
+   * @param {String} userId - userId to search user in database
+   * @param {String} thoughtId - thoughtId to search user in database
+   * @returns Thouhgt object if exist, or null if does not exist
+   */
+  async getThoughtById(userId, thoughtId) {
+    const data = await firestoreService.getDocumentL2(
+      "Users",
+      userId,
+      "Thoughts",
+      thoughtId
+    );
     return data ? Thouhgt.fromDataNoId(data) : null;
   }
 
-  // passing a thought document to this helper and save it to database
-  async addThought(thought) {
-    console.log("33", thought.toData());
-    const thoughtId = await firestoreService.addDocument(
+  /**
+   * Add thought using userId and Thought object
+   * @param {String} userId - user Id as a search key in database
+   * @param {Thought} thought - a Thought Object
+   * @returns The thought ID that stored in database
+   */
+  async addThought(userId, thought) {
+    const thoughtId = await firestoreService.addDocumentL2(
+      "Users",
+      userId,
       "Thoughts",
-      thought.toData()
+      null,
+      thought.toFirestore()
     );
     return thoughtId;
   }
 
-  // editing a user by id
-  async editThought(user, id) {}
-
-  async deleteThought(id) {
-    await firestoreService.deleteDocument("Thoughts", id);
-  }
-
-  async getThoughtByOwnerEmail(ownerEmail) {
-    const data = await firestoreService.queryCollection(
+  /**
+   * Delete thought using userId and thoughtId
+   * @param {String} userId - user id
+   * @param {String} thoughtId - thought id
+   * @returns Void
+   */
+  async deleteThought(userId, thoughtId) {
+    await firestoreService.deleteDocumentL2(
+      "Users",
+      userId,
       "Thoughts",
-      "ownerEmail",
-      "==",
-      ownerEmail
+      thoughtId
     );
-    // If data is not empty, return the first user object
-    if (data.length > 0) {
-      return Thouhgt.fromData(data[0].id, data[0]);
-    }
-    return null;
+    return;
   }
 }
 

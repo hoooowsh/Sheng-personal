@@ -5,7 +5,7 @@ const { isAdmin } = require("../Helper/admin");
 
 /**
  * Login user controller. Login user, create database entry for user if need
- * @param {*} req - contains: name, tokenUserId, tokenEmail
+ * @param {*} req - contains: name
  * @param {*} res - contains: userId
  * @param {*} next - next to Error Handler
  */
