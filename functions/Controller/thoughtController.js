@@ -33,4 +33,26 @@ async function addThought(req, res, next) {
   }
 }
 
-module.exports = { addThought };
+/**
+ * Get thought controller. Get thought from database with corresponding userId and thoughtId
+ * @param {*} req - contains: thoughtId(param)
+ * @param {*} res - contains: thought content
+ * @param {*} next - next to Error Handler
+ */
+async function getThought(req, res, next) {
+  try {
+    const thoughtId = req.params.thoughtId;
+
+    // first get admin Id
+    const adminInfo = await UserDAO.getUserByEmail(process.env.ADMIN_EMAIL);
+    const adminId = adminInfo.id;
+
+    // get thought using admin Id and thought Id
+    const thought = await ThoughtDAO.getThoughtById(adminId, thoughtId);
+    res.status(200).send({ thought: thought });
+  } catch (error) {
+    next(error);
+  }
+}
+
+module.exports = { addThought, getThought };

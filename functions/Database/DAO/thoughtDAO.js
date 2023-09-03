@@ -15,7 +15,7 @@ class ThoughtDAO {
       "Thoughts",
       thoughtId
     );
-    return data ? Thouhgt.fromDataNoId(data) : null;
+    return data ? Thouhgt.fromFirestore(data) : null;
   }
 
   /**

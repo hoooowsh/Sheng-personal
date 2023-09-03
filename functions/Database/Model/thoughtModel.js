@@ -16,7 +16,7 @@ class Thought {
    * @param {Object} data - thought object get from database
    * @returns Thought object
    */
-  fromFirestore(data) {
+  static fromFirestore(data) {
     return new Thought(data.title, data.content, data.date);
   }
 

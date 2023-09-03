@@ -19,7 +19,7 @@ class User {
    * @param {Object} data - user object get from database
    * @returns User object
    */
-  fromFirestore(userId, data) {
+  static fromFirestore(userId, data) {
     return new User(userId, data.name, data.email, data.isAdmin);
   }
 
