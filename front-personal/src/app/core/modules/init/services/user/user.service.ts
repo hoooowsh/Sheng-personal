@@ -11,7 +11,6 @@ export class UserService {
 
   async signinUser() {
     const userDetails = await this.authService.getUserRegisterDetails();
-    console.log('userdetials', userDetails);
 
     const token = await this.authService.getUserToken();
     const httpOptions = {

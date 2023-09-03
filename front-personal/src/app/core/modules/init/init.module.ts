@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
 import { InitRoutingModule } from './init-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -17,12 +18,19 @@ import { ThoughtListPageComponent } from './components/thought-list-page/thought
     HomepageComponent,
     ThoughtListPageComponent,
   ],
-  imports: [CommonModule, InitRoutingModule, HttpClientModule],
+  imports: [
+    CommonModule,
+    InitRoutingModule,
+    HttpClientModule,
+    MatTableModule,
+    MatButtonModule,
+  ],
   exports: [
     FooterComponent,
     NavbarComponent,
     HeaderComponent,
     HomepageComponent,
+    ThoughtListPageComponent,
   ],
 })
 export class InitModule {}
