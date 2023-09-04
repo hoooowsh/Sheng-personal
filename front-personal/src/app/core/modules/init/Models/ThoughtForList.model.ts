@@ -4,4 +4,5 @@ export interface ThoughtForList {
   id: string;
   title: string;
   date: number;
+  formattedDate?: string;
 }

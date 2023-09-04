@@ -14,11 +14,15 @@ export class ThoughtListPageComponent {
 
   ngOnInit(): void {
     this.thoughtService.getAllThought().subscribe((data: ThoughtForList[]) => {
-      // console.log('this is data ', data);
-      // console.log(typeof data); // should print true if data is an array
-
-      // Corrected function name and added type
-      this.thoughts = data.sort((a, b) => b.date - a.date); // Sort by time
+      this.thoughts = data
+        .map((thought) => {
+          const dateObject = new Date(thought.date * 1000);
+          const humanDateFormat = `${
+            dateObject.getMonth() + 1
+          }/${dateObject.getDate()}/${dateObject.getFullYear()}`;
+          return { ...thought, formattedDate: humanDateFormat };
+        })
+        .sort((a, b) => b.date - a.date);
     });
   }
 

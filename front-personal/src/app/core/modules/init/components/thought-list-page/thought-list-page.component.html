@@ -1,17 +1,14 @@
-<div class="thought-list-container">
-  <table class="table">
-    <thead>
-      <tr>
+<div class="thought-list">
+  <div class="thought-list-container">
+    <table class="table">
+      <tr class="header-row">
         <th>Title</th>
-        <th></th>
-        <button class="add-button" (click)="createThought()">+</button>
+        <th><button class="add-button" (click)="createThought()">+</button></th>
       </tr>
-    </thead>
-    <tbody>
       <tr *ngFor="let thought of thoughts" (click)="onRowClicked(thought)">
         <td>{{ thought.title }}</td>
-        <td>{{ thought.date }}</td>
+        <td>{{ thought.formattedDate }}</td>
       </tr>
-    </tbody>
-  </table>
+    </table>
+  </div>
 </div>
