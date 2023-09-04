@@ -9,6 +9,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ThoughtListPageComponent } from './components/thought-list-page/thought-list-page.component';
+import { ThoughtAddComponent } from './components/thought-add/thought-add.component';
+import { ToughtComponent } from './components/tought/tought.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { ThoughtListPageComponent } from './components/thought-list-page/thought
     HeaderComponent,
     HomepageComponent,
     ThoughtListPageComponent,
+    ThoughtAddComponent,
+    ToughtComponent,
   ],
   imports: [
     CommonModule,
