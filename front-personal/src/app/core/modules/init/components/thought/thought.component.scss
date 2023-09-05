@@ -1,4 +1,5 @@
 .thought {
+  position: relative; /* Set relative position for the parent container */
   .title {
     text-align: center;
     font-family: "Concert One", cursive;
@@ -6,9 +7,29 @@
   .content {
     text-align: left;
     font-family: "Concert One", cursive;
+    padding-left: 10px;
   }
   .date {
-    text-align: right;
+    text-align: justify;
     font-family: "Concert One", cursive;
+    padding-left: 10px;
+  }
+
+  .delete-button {
+    text-align: right; /* Align content to the right */
+
+    button {
+      margin-right: 10px; /* Add a gap to the right */
+      background-color: darkred; /* Dark red background */
+      color: white; /* Text color */
+      padding: 10px 20px; /* Padding around text */
+      border: none; /* No border */
+      cursor: pointer; /* Cursor changes to hand when hovered */
+      transition: background-color 0.3s; /* Smooth transition for background color */
+    }
+
+    button:hover {
+      background-color: red; /* Background color changes to red when hovered */
+    }
   }
 }

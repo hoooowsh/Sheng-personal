@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ThoughtService } from '../../services/thought/thought.service';
 import { Thought } from '../../Models/Thought';
 
@@ -12,7 +12,8 @@ export class ThoughtComponent {
   thought: Thought | null = null;
   constructor(
     private thoughtService: ThoughtService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -34,6 +35,29 @@ export class ThoughtComponent {
       });
     } else {
       console.error('Invalid thought ID:', id);
+    }
+  }
+
+  async deleteThought() {
+    try {
+      const id = this.route.snapshot.paramMap.get('id');
+      if (id) {
+        const addThoughtObservable = await this.thoughtService.deleteOneThought(
+          id
+        );
+
+        addThoughtObservable.subscribe({
+          next: (response) => {
+            console.log(response);
+            this.router.navigate(['/thought']);
+          },
+          error: (error) => {
+            console.error('Error adding thought:', error);
+          },
+        });
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 }

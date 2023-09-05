@@ -47,4 +47,24 @@ export class ThoughtService {
       httpOptions
     );
   }
+
+  async deleteOneThought(thoughtId: string) {
+    const email = await this.authService.getUserEmail();
+    if (email !== environment.adminEmail) {
+      throw new Error('User not authenticated');
+    }
+    const token = await this.authService.getUserToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + token,
+      }),
+    };
+    return this.http.post<any>(
+      `${environment.backendUrl}/thought/delete`,
+      {
+        thoughtId: thoughtId,
+      },
+      httpOptions
+    );
+  }
 }

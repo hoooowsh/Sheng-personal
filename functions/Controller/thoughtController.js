@@ -74,12 +74,20 @@ async function getThoughtList(req, res, next) {
   }
 }
 
+/**
+ * Delete one thought using userId and thoughtId
+ * @param {*} req - contains: thoughtId
+ * @param {*} res - null
+ * @param {*} next - next to Error Handler
+ */
 async function deleteThought(req, res, next) {
   try {
     const { tokenUserId, tokenEmail, thoughtId } = req.body;
     if (!isAdmin(tokenEmail)) {
       throw new AppError("You are not a master teapot", 401);
     }
+    await ThoughtDAO.deleteThought(tokenUserId, thoughtId);
+    res.status(200).send({});
   } catch (error) {
     next(error);
   }
