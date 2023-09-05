@@ -30,6 +30,7 @@ export class ThoughtListPageComponent {
   onRowClicked(thought: ThoughtForList): void {
     this.router.navigate(['/thought/id', thought.id]);
   }
+
   createThought(): void {
     this.router.navigate(['/thought/add']);
   }

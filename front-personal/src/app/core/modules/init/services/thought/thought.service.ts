@@ -35,14 +35,14 @@ export class ThoughtService {
         Authorization: 'Bearer ' + token,
       }),
     };
-    console.log(Date.now());
+    const currentTimeInSeconds = Math.floor(Date.now() / 1000);
 
     return this.http.post<any>(
       `${environment.backendUrl}/thought/add`,
       {
         title: title,
         content: content,
-        date: Date.now(),
+        date: currentTimeInSeconds,
       },
       httpOptions
     );

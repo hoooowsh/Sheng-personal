@@ -1,28 +1,34 @@
-<div class="container">
-  <h1>Add a Thought</h1>
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="title">Title:</label>
-      <input
-        type="text"
-        id="title"
-        name="title"
-        [(ngModel)]="newThought.title"
-        required
-      />
-    </div>
+<div class="add-thought">
+  <div class="container">
+    <div class="add-thought-title"><h1>add one thought~</h1></div>
+    <form (ngSubmit)="addThought()">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          [(ngModel)]="newThought.title"
+          required
+          maxlength="100"
+        />
+      </div>
 
-    <div class="form-group">
-      <label for="content">Content:</label>
-      <textarea
-        id="content"
-        name="content"
-        rows="4"
-        [(ngModel)]="newThought.content"
-        required
-      ></textarea>
-    </div>
+      <div class="form-group">
+        <label for="content">Content:</label>
+        <textarea
+          id="content"
+          name="content"
+          rows="4"
+          [(ngModel)]="newThought.content"
+          required
+          (input)="adjustTextarea($event)"
+        ></textarea>
+      </div>
 
-    <button type="submit">Add Thought</button>
-  </form>
+      <div class="submit-button">
+        <button type="submit">Add Thought</button>
+      </div>
+    </form>
+  </div>
 </div>
