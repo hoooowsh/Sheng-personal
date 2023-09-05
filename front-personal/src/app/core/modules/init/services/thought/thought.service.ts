@@ -18,8 +18,8 @@ export class ThoughtService {
   }
 
   getOneThought(thoughtId: string): Observable<Thought> {
-    return this.http.get<Thought>(
-      `${environment.backendUrl}/thought/id/${thoughtId}`
-    );
+    return this.http
+      .get<any>(`${environment.backendUrl}/thought/id/${thoughtId}`)
+      .pipe(map((response) => response.thought));
   }
 }

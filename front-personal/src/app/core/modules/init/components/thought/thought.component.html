@@ -1,5 +1,13 @@
-<div *ngIf="thought">
-  <h1>{{ thought.title }}</h1>
-  <p>{{ thought.content }}</p>
-  <p>Date: {{ thought.date }}</p>
+<div class="thought">
+  <div *ngIf="thought">
+    <div class="title">
+      <h1>{{ thought.title }}</h1>
+    </div>
+    <div class="content">
+      <p>{{ thought.content }}</p>
+    </div>
+    <div class="date">
+      <p>Date: {{ thought.date }}</p>
+    </div>
+  </div>
 </div>
