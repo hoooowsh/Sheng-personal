@@ -22,16 +22,16 @@ export class HeaderComponent {
   async signInWithGoogle() {
     try {
       const result = await this.authService.googleSignIn();
-      console.log('Successfully signed in with Google:', result);
 
-      (await this.userService.signinUser()).subscribe(
-        (response) => {
+      const observable = await this.userService.signinUser();
+      observable.subscribe({
+        next: (response) => {
           console.log('User registered successfully:', response);
         },
-        (error) => {
+        error: (error) => {
           console.error('Error during user registration:', error);
-        }
-      );
+        },
+      });
     } catch (error) {
       console.error('Error during sign in:', error);
     }
@@ -44,9 +44,5 @@ export class HeaderComponent {
     } catch (error) {
       console.error('Error during sign in:', error);
     }
-  }
-
-  async test() {
-    console.log(this.user);
   }
 }

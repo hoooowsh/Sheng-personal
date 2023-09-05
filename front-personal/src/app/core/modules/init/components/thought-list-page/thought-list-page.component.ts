@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ThoughtService } from '../../services/thought/thought.service';
 import { ThoughtForList } from '../../Models/ThoughtForList.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-thought-list-page',
@@ -10,7 +11,7 @@ import { ThoughtForList } from '../../Models/ThoughtForList.model';
 export class ThoughtListPageComponent {
   thoughts: ThoughtForList[] = [];
   displayedColumns: string[] = ['title', 'date'];
-  constructor(private thoughtService: ThoughtService) {}
+  constructor(private thoughtService: ThoughtService, private router: Router) {}
 
   ngOnInit(): void {
     this.thoughtService.getAllThought().subscribe((data: ThoughtForList[]) => {
@@ -26,8 +27,8 @@ export class ThoughtListPageComponent {
     });
   }
 
-  onRowClicked(row: any): void {
-    console.log('Row clicked: ', row);
+  onRowClicked(thought: ThoughtForList): void {
+    this.router.navigate(['/thought', thought.id]);
   }
   createThought(): void {
     console.log('Create thought clicked');

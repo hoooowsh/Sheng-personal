@@ -22,7 +22,6 @@ export class AuthService {
     try {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(this.auth, provider);
-      console.log(result);
       return result;
     } catch (error) {
       console.error('Error during Google sign in:', error);
