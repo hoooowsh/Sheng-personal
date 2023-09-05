@@ -5,6 +5,7 @@ const {
   addThought,
   getThought,
   getThoughtList,
+  deleteThought,
 } = require("../Controller/thoughtController");
 const {
   FirebaseTokenValidator,
@@ -16,5 +17,12 @@ ThoughtRoute.post("/add", FirebaseTokenValidator(), AuthValidate, addThought);
 ThoughtRoute.get("/id/:thoughtId", getThought);
 
 ThoughtRoute.get("/thoughtList", getThoughtList);
+
+ThoughtRoute.post(
+  "/delete",
+  FirebaseTokenValidator(),
+  AuthValidate,
+  deleteThought
+);
 
 module.exports = ThoughtRoute;

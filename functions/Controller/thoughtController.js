@@ -74,4 +74,15 @@ async function getThoughtList(req, res, next) {
   }
 }
 
-module.exports = { addThought, getThought, getThoughtList };
+async function deleteThought(req, res, next) {
+  try {
+    const { tokenUserId, tokenEmail, thoughtId } = req.body;
+    if (!isAdmin(tokenEmail)) {
+      throw new AppError("You are not a master teapot", 401);
+    }
+  } catch (error) {
+    next(error);
+  }
+}
+
+module.exports = { addThought, getThought, getThoughtList, deleteThought };
