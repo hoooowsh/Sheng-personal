@@ -28,9 +28,9 @@ export class ThoughtListPageComponent {
   }
 
   onRowClicked(thought: ThoughtForList): void {
-    this.router.navigate(['/thought', thought.id]);
+    this.router.navigate(['/thought/id', thought.id]);
   }
   createThought(): void {
-    console.log('Create thought clicked');
+    this.router.navigate(['/thought/add']);
   }
 }

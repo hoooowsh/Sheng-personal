@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // <-- import FormsModule
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { InitRoutingModule } from './init-routing.module';
@@ -28,6 +29,7 @@ import { ThoughtComponent } from './components/thought/thought.component';
     HttpClientModule,
     MatTableModule,
     MatButtonModule,
+    FormsModule,
   ],
   exports: [
     FooterComponent,

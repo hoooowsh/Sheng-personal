@@ -10,4 +10,5 @@ export const environment = {
     measurementId: 'G-GLBVC9MTG1',
   },
   backendUrl: 'http://localhost:5001/sheng-persona/us-central1/app',
+  adminEmail: 'haosheng950403@gmail.com',
 };

@@ -22,7 +22,6 @@ export class ThoughtComponent {
       this.thoughtService.getOneThought(id).subscribe({
         next: (response) => {
           this.thought = response;
-          console.log('Thought object:', JSON.stringify(this.thought));
           if (this.thought && this.thought.title) {
             console.log('Title:', this.thought.title);
           } else {

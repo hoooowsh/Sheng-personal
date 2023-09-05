@@ -62,4 +62,13 @@ export class AuthService {
   async getUser() {
     return this.auth.currentUser;
   }
+
+  async getUserEmail() {
+    const user = this.auth.currentUser;
+    if (user) {
+      const { email } = user;
+      return email;
+    }
+    throw new Error('User not authenticated');
+  }
 }
