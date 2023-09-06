@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ThoughtListPageComponent } from './components/thought-list-page/thought-list-page.component';
 import { ThoughtAddComponent } from './components/thought-add/thought-add.component';
 import { ThoughtComponent } from './components/thought/thought.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ThoughtComponent } from './components/thought/thought.component';
     ThoughtListPageComponent,
     ThoughtAddComponent,
     ThoughtComponent,
+    ContactComponent,
   ],
   imports: [
     CommonModule,

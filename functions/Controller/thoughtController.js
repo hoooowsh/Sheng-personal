@@ -3,7 +3,6 @@ const UserDAO = require("../Database/DAO/userDAO");
 const Thought = require("../Database/Model/thoughtModel");
 const AppError = require("../Util/AppError");
 const { isAdmin } = require("../Helper/admin");
-const userDAO = require("../Database/DAO/userDAO");
 
 /**
  * Add thought controller. Add thought to database with corresponding userId
