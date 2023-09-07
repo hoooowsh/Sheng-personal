@@ -3,7 +3,7 @@ class Thought {
    * Thought model constructor
    * @param {String} title - the title of the thought
    * @param {String} content - the content of the thought
-   * @param {Date} date - data object for storing date
+   * @param {Date} date - date for storing date
    */
   constructor(title, content, date) {
     this.title = title;

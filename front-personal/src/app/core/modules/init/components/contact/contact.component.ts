@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ContactService } from '../../services/contact/contact.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -13,7 +14,7 @@ export class ContactComponent {
     phone: '',
     message: '',
   };
-  constructor(private contactService: ContactService) {}
+  constructor(private contactService: ContactService, private router: Router) {}
 
   submitContactForm() {
     this.contactService
@@ -24,7 +25,10 @@ export class ContactComponent {
         this.contact.message
       )
       .subscribe(
-        (response) => console.log('Email sent successfully!', response),
+        (response) => {
+          console.log('Email sent successfully!', response);
+          this.router.navigate(['/contact']);
+        },
         (error) => console.log('Failed to send email', error)
       );
   }

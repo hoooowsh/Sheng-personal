@@ -1,22 +1,35 @@
 class Comment {
-  // Comment schema constructor
-  constructor(userId, userName, date, content) {
-    this.userId = userId;
-    this.userName = userName;
+  /**
+   * Comment model constructor
+   * @param {String} ownerId - commenter Id
+   * @param {String} ownerName - commenter NAME
+   * @param {Date} date - date for storing date
+   * @param {String} content - comment content
+   */
+  constructor(ownerId, ownerName, date, content) {
+    this.ownerId = ownerId;
+    this.ownerName = ownerName;
     this.date = date;
     this.content = content;
   }
 
-  // using this to return data, get comment data using id
-  static fromData(commentId, data) {
-    return new Comment(commentId, data.userName, data.date, data.content);
+  /**
+   * Helper function to return data, get comment data using id
+   * @param {Object} data - comment object get from database
+   * @returns Comment object
+   */
+  static fromFirestore(data) {
+    return new Comment(data.ownerId, data.ownerName, data.date, data.content);
   }
 
-  // used for creating database entry
-  toData() {
+  /**
+   * Helper function to create comment instance in database
+   * @returns An object that has all docs for a comment instance in database
+   */
+  toFirestore() {
     return {
-      userId: this.userId,
-      userName: this.userName,
+      ownerId: this.ownerId,
+      ownerName: this.ownerName,
       date: this.date,
       content: this.content,
     };

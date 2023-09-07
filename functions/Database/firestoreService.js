@@ -131,7 +131,7 @@ module.exports = {
    * @param {Object} data - data object for adding to database
    * @returns Void
    */
-  async setDocument(
+  async setDocumentL2(
     collectionL1,
     documentIdL1,
     collectionL2,
@@ -203,5 +203,76 @@ module.exports = {
       default:
         return snapshot;
     }
+  },
+
+  /**
+   * Third level get document content helper function for general use cases
+   * @param {String} collectionL1 - first level collection name
+   * @param {String} documentIdL1 - first level document id
+   * @param {String} collectionL2 - second level collection name
+   * @param {String} documentIdL2 - second level document id
+   * @param {String} collectionL3 - third level collection name
+   * @param {String} documentIdL3 - third level document id
+   * @returns The document or null if it does not exist
+   */
+  async getDocumentL3(
+    collectionL1,
+    documentIdL1,
+    collectionL2,
+    documentIdL2,
+    collectionL3,
+    documentIdL3
+  ) {
+    const doc = await db
+      .collection(collectionL1)
+      .doc(documentIdL1)
+      .collection(collectionL2)
+      .doc(documentIdL2)
+      .collection(collectionL3)
+      .doc(documentIdL3)
+      .get();
+    return doc.exists ? doc.data() : null;
+  },
+
+  /**
+   * Third level add document content helper function for general use cases
+   * @param {String} collectionL1 - first level collection name
+   * @param {String} documentIdL1 - first level document id
+   * @param {String} collectionL2 - second level collection name
+   * @param {String} documentIdL2 - second level document id
+   * @param {String} collectionL3 - third level collection name
+   * @param {String} documentIdL3 - third level document id
+   * @param {Object} data - data object for adding to database
+   * @returns The id of the new created document
+   */
+  async addDocumentL3(
+    collectionL1,
+    documentIdL1,
+    collectionL2,
+    documentIdL2,
+    collectionL3,
+    documentIdL3 = null,
+    data
+  ) {
+    let docRef;
+    if (documentIdL2) {
+      docRef = await db
+        .collection(collectionL1)
+        .doc(documentIdL1)
+        .collection(collectionL2)
+        .doc(documentIdL2)
+        .collection(collectionL3)
+        .doc(documentIdL3);
+      await docRef.set(data);
+    } else {
+      docRef = await db
+        .collection(collectionL1)
+        .doc(documentIdL1)
+        .collection(collectionL2)
+        .doc(documentIdL2)
+        .collection(collectionL3)
+        .add(data);
+    }
+    return docRef.id;
   },
 };

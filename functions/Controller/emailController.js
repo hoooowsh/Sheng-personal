@@ -1,5 +1,11 @@
 const nodemailer = require("nodemailer");
 
+/**
+ * Send email for contact page
+ * @param {*} req - contains: email, name, phone, message
+ * @param {*} res - None
+ * @param {*} next - next to error handler
+ */
 async function sendContactEmail(req, res, next) {
   try {
     console.log("test sss");
