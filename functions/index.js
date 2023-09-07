@@ -20,6 +20,7 @@ app.use(bodyParser.json());
 
 const UserRouter = require("./Route/user");
 const ThoughtRoute = require("./Route/thought");
+const EmailRoute = require("./Route/email");
 const { globalErrorHandler } = require("./Helper/errorHandler");
 
 app.get("/test", async (req, res) => {
@@ -31,6 +32,9 @@ app.use("/user", UserRouter);
 
 // thought routes
 app.use("/thought", ThoughtRoute);
+
+// email routes
+app.use("/email", EmailRoute);
 
 // global error handler
 app.use(globalErrorHandler);

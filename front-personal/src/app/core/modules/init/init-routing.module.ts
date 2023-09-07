@@ -4,6 +4,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { ThoughtListPageComponent } from './components/thought-list-page/thought-list-page.component';
 import { ThoughtComponent } from './components/thought/thought.component';
 import { ThoughtAddComponent } from './components/thought-add/thought-add.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'thought', component: ThoughtListPageComponent },
   { path: 'thought/id/:id', component: ThoughtComponent },
   { path: 'thought/add', component: ThoughtAddComponent },
+  { path: 'contact', component: ContactComponent },
 ];
 
 @NgModule({
