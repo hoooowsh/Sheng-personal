@@ -172,10 +172,11 @@ module.exports = {
 
   /**
    * Second level get the whole collection
-   * @param {*} collectionL1
-   * @param {*} documentIdL1
-   * @param {*} collectionL2
-   * @returns
+   * @param {String} collectionL1 - first level collection name
+   * @param {String} documentIdL1 - first level document id
+   * @param {String} collectionL2 - second level collection name
+   * @param {String} condition - condition for switch statement
+   * @returns A list of objects
    */
   async getCollectionL2(collectionL1, documentIdL1, collectionL2, condition) {
     const collectionVal = db
@@ -183,14 +184,12 @@ module.exports = {
       .doc(documentIdL1)
       .collection(collectionL2);
     const snapshot = await collectionVal.get();
-    console.log("snapshot", snapshot);
     if (snapshot.empty) {
       return null;
     }
     let result = [];
     switch (condition) {
       case "thoughtList":
-        console.log("here");
         snapshot.forEach((doc) => {
           const data = doc.data();
           result.push({
@@ -274,5 +273,112 @@ module.exports = {
         .add(data);
     }
     return docRef.id;
+  },
+
+  /**
+   * Third level update document content helper function for general use cases
+   * @param {String} collectionL1 - first level collection name
+   * @param {String} documentIdL1 - first level document id
+   * @param {String} collectionL2 - second level collection name
+   * @param {String} documentIdL2 - second level document id
+   * @param {String} collectionL3 - third level collection name
+   * @param {String} documentIdL3 - third level document id
+   * @param {String} data - data object for adding to database
+   * @returns Void
+   */
+  async setDocumentL3(
+    collectionL1,
+    documentIdL1,
+    collectionL2,
+    documentIdL2,
+    collectionL3,
+    documentIdL3,
+    data
+  ) {
+    await db
+      .collection(collectionL1)
+      .doc(documentIdL1)
+      .collection(collectionL2)
+      .doc(documentIdL2)
+      .collection(collectionL3)
+      .doc(documentIdL3)
+      .set(data);
+    return;
+  },
+
+  /**
+   * Third level delete document content helper function for general use cases
+   * @param {String} collectionL1 - first level collection name
+   * @param {String} documentIdL1 - first level document id
+   * @param {String} collectionL2 - second level collection name
+   * @param {String} documentIdL2 - second level document id
+   * @param {String} collectionL3 - third level collection name
+   * @param {String} documentIdL3 - third level document id
+   * @returns Void
+   */
+  async deleteDocumentL3(
+    collectionL1,
+    documentIdL1,
+    collectionL2,
+    documentIdL2,
+    collectionL3,
+    documentIdL3
+  ) {
+    await db
+      .collection(collectionL1)
+      .doc(documentIdL1)
+      .collection(collectionL2)
+      .doc(documentIdL2)
+      .collection(collectionL3)
+      .doc(documentIdL3)
+      .delete();
+    return;
+  },
+
+  /**
+   * Third level get the whole collection
+   * @param {String} collectionL1 - first level collection name
+   * @param {String} documentIdL1 - first level document id
+   * @param {String} collectionL2 - second level collection name
+   * @param {String} documentIdL2 - second level document id
+   * @param {String} collectionL3 - third level collection name
+   * @param {String} condition  - condition for switch statement
+   * @returns A list of objects
+   */
+  async getCollectionL2(
+    collectionL1,
+    documentIdL1,
+    collectionL2,
+    documentIdL2,
+    collectionL3,
+    condition
+  ) {
+    const collectionVal = db
+      .collection(collectionL1)
+      .doc(documentIdL1)
+      .collection(collectionL2)
+      .doc(documentIdL2)
+      .collection(collectionL3);
+    const snapshot = await collectionVal.get();
+    if (snapshot.empty) {
+      return null;
+    }
+    let result = [];
+    switch (condition) {
+      case "commentList":
+        snapshot.forEach((doc) => {
+          const data = doc.data();
+          result.push({
+            id: doc.id,
+            ownerId: data.ownerId,
+            ownerName: data.ownerName,
+            content: data.content,
+            date: data.date,
+          });
+        });
+        return result;
+      default:
+        return snapshot;
+    }
   },
 };
