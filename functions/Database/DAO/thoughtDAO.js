@@ -3,9 +3,9 @@ const Thouhgt = require("../Model/thoughtModel");
 
 class ThoughtDAO {
   /**
-   * Get thought using thoughtId as a key
+   * Get thought using userId, thoughtId as keys
    * @param {String} userId - userId to search user in database
-   * @param {String} thoughtId - thoughtId to search user in database
+   * @param {String} thoughtId - thoughtId to search thought in database
    * @returns Thouhgt object if exist, or null if does not exist
    */
   async getThoughtById(userId, thoughtId) {
@@ -24,7 +24,6 @@ class ThoughtDAO {
    * @returns List of all thoughts
    */
   async getThoughtList(userId) {
-    console.log("heresadfF");
     const result = await firestoreService.getCollectionL2(
       "Users",
       userId,
