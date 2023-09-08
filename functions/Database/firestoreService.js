@@ -190,6 +190,7 @@ module.exports = {
     let result = [];
     switch (condition) {
       case "thoughtList":
+        console.log("hjjj");
         snapshot.forEach((doc) => {
           const data = doc.data();
           result.push({
@@ -345,7 +346,7 @@ module.exports = {
    * @param {String} condition  - condition for switch statement
    * @returns A list of objects
    */
-  async getCollectionL2(
+  async getCollectionL3(
     collectionL1,
     documentIdL1,
     collectionL2,
