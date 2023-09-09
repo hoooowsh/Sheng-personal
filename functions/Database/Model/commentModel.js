@@ -6,11 +6,12 @@ class Comment {
    * @param {Date} date - date for storing date
    * @param {String} content - comment content
    */
-  constructor(ownerId, ownerName, date, content) {
+  constructor(ownerId, ownerName, content, date, isAnonymous) {
     this.ownerId = ownerId;
     this.ownerName = ownerName;
-    this.date = date;
     this.content = content;
+    this.date = date;
+    this.isAnonymous = isAnonymous;
   }
 
   /**
@@ -19,7 +20,13 @@ class Comment {
    * @returns Comment object
    */
   static fromFirestore(data) {
-    return new Comment(data.ownerId, data.ownerName, data.date, data.content);
+    return new Comment(
+      data.ownerId,
+      data.ownerName,
+      data.date,
+      data.content,
+      data.isAnonymous
+    );
   }
 
   /**
@@ -30,8 +37,9 @@ class Comment {
     return {
       ownerId: this.ownerId,
       ownerName: this.ownerName,
-      date: this.date,
       content: this.content,
+      date: this.date,
+      isAnonymous: this.isAnonymous,
     };
   }
 }

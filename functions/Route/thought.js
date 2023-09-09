@@ -1,6 +1,5 @@
 const express = require("express");
 const ThoughtRoute = express.Router();
-require("dotenv").config();
 const {
   addThought,
   getThought,

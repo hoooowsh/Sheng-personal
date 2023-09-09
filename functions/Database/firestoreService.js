@@ -255,7 +255,7 @@ module.exports = {
     data
   ) {
     let docRef;
-    if (documentIdL2) {
+    if (documentIdL3) {
       docRef = await db
         .collection(collectionL1)
         .doc(documentIdL1)

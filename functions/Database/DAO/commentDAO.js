@@ -53,6 +53,7 @@ class CommentDAO {
       "Thoughts",
       thoughtId,
       "Comments",
+      null,
       comment.toFirestore()
     );
     return commentId;
@@ -77,4 +78,5 @@ class CommentDAO {
     return;
   }
 }
+
 module.exports = new CommentDAO();
