@@ -1,6 +1,9 @@
 .thought {
-  position: relative; /* Set relative position for the parent container */
+  position: relative;
+  max-width: 80%;
 
+  margin: 0 auto;
+  background-color: rgb(97, 97, 97);
   .title {
     text-align: center;
     font-family: "Concert One", cursive;
@@ -19,16 +22,16 @@
   }
 
   .button-container {
-    display: flex; // use flexbox to layout buttons
-    justify-content: space-between; // put maximum space between items
+    display: flex;
+    justify-content: space-between;
 
     .delete-button,
     .goback_button {
       button {
-        background-color: darkred; // Default to dark red
-        color: white; // Text color
-        padding: 10px 20px; // Padding around text
-        border: none; // No border
+        background-color: darkred;
+        color: white;
+        padding: 10px 20px;
+        border: none;
         cursor: pointer; // Cursor changes to hand when hovered
         transition: background-color 0.3s; // Smooth transition for background color
       }
@@ -40,6 +43,7 @@
 
     .delete-button {
       margin-right: 10px; // Add a small gap to the right edge
+      margin-bottom: 10px;
     }
     .goback_button {
       button {
@@ -50,6 +54,7 @@
         background-color: rgb(8, 119, 209);
       }
       margin-left: 10px; // Add a small gap to the left edge
+      margin-bottom: 10px;
     }
   }
 }
