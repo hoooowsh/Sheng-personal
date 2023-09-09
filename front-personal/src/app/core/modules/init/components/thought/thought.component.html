@@ -9,8 +9,13 @@
     <div class="date">
       <p>Date: {{ thought.formattedDate }}</p>
     </div>
-    <div class="delete-button">
-      <button (click)="deleteThought()">Delete This</button>
+    <div class="button-container">
+      <div class="goback_button">
+        <button (click)="goBack()">Go Back</button>
+      </div>
+      <div class="delete-button">
+        <button (click)="deleteThought()">Delete This</button>
+      </div>
     </div>
   </div>
 </div>

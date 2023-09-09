@@ -65,4 +65,8 @@ export class ThoughtComponent {
       console.log(error);
     }
   }
+
+  goBack() {
+    this.router.navigate(['/thought']);
+  }
 }
