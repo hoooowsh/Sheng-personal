@@ -23,6 +23,11 @@ export class ThoughtComponent {
       this.thoughtService.getOneThought(id).subscribe({
         next: (response) => {
           this.thought = response;
+          const dateObject = new Date(this.thought.date * 1000);
+          const humanDateFormat = `${
+            dateObject.getMonth() + 1
+          }/${dateObject.getDate()}/${dateObject.getFullYear()}`;
+          this.thought.formattedDate = humanDateFormat;
           if (this.thought && this.thought.title) {
             console.log('Title:', this.thought.title);
           } else {

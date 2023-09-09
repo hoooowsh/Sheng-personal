@@ -3,4 +3,5 @@ export interface Thought {
   title: string;
   content: string;
   date: number;
+  formattedDate: string;
 }
