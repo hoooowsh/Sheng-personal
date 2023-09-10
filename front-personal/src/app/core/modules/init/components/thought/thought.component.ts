@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ThoughtService } from '../../services/thought/thought.service';
 import { Thought } from '../../Models/Thought';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-thought',
@@ -10,11 +11,24 @@ import { Thought } from '../../Models/Thought';
 })
 export class ThoughtComponent {
   thought: Thought | null = null;
+  user: any = null;
+  isAdmin: boolean = false;
   constructor(
     private thoughtService: ThoughtService,
     private route: ActivatedRoute,
-    private router: Router
-  ) {}
+    private router: Router,
+    private authService: AuthService
+  ) {
+    this.authService.userState.subscribe(async (user) => {
+      this.user = user;
+      if (user) {
+        this.isAdmin = await this.authService.isAdmin();
+        console.log(this.isAdmin);
+      } else {
+        this.isAdmin = false;
+      }
+    });
+  }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');

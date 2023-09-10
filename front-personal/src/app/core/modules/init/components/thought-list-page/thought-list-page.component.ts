@@ -3,7 +3,6 @@ import { ThoughtService } from '../../services/thought/thought.service';
 import { ThoughtForList } from '../../Models/ThoughtForList.model';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-thought-list-page',

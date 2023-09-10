@@ -14,7 +14,7 @@
         <button (click)="goBack()">Go Back</button>
       </div>
       <div class="delete-button">
-        <button (click)="deleteThought()">Delete This</button>
+        <button *ngIf="isAdmin" (click)="deleteThought()">Delete This</button>
       </div>
     </div>
   </div>
