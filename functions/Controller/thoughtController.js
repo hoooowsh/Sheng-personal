@@ -65,7 +65,6 @@ async function getThoughtList(req, res, next) {
     // first get admin Id
     const userInfo = await UserDAO.getUserByEmail(process.env.ADMIN_EMAIL);
     const userId = userInfo.id;
-    console.log("wtf");
     const thoughtList = await ThoughtDAO.getThoughtList(userId);
     res.status(200).send({ thoughtList: thoughtList });
   } catch (error) {

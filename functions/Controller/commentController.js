@@ -31,7 +31,7 @@ async function addComment(req, res, next) {
       isAnonymous
     );
 
-    // get admin info 
+    // get admin info
     const adminInfo = await UserDAO.getUserByEmail(process.env.ADMIN_EMAIL);
     const adminId = adminInfo.id;
 
@@ -47,4 +47,17 @@ async function addComment(req, res, next) {
   }
 }
 
-module.exports = { addComment };
+async function getCommentList(req, res, next) {
+  try {
+    // get user id and thought id, get data from database
+    const { objId, objName } = req.body.objId;
+    const userInfo = await UserDAO.getUserByEmail(process.env.ADMIN_EMAIL);
+    const userId = userInfo.id;
+
+    // get the comment list
+  } catch (error) {
+    next(error);
+  }
+}
+
+module.exports = { addComment, getCommentList };
