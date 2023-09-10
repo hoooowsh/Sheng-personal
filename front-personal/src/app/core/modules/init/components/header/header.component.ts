@@ -21,7 +21,7 @@ export class HeaderComponent {
 
   async signInWithGoogle() {
     try {
-      const result = await this.authService.googleSignIn();
+      await this.authService.googleSignIn();
 
       const observable = await this.userService.signinUser();
       observable.subscribe({

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ThoughtService } from '../../services/thought/thought.service';
 import { ThoughtForList } from '../../Models/ThoughtForList.model';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-thought-list-page',
@@ -11,9 +13,26 @@ import { Router } from '@angular/router';
 export class ThoughtListPageComponent {
   thoughts: ThoughtForList[] = [];
   displayedColumns: string[] = ['title', 'date'];
-  constructor(private thoughtService: ThoughtService, private router: Router) {}
+  user: any = null;
+  isAdmin: boolean = false;
 
-  ngOnInit(): void {
+  constructor(
+    private thoughtService: ThoughtService,
+    private router: Router,
+    private authService: AuthService
+  ) {
+    this.authService.userState.subscribe(async (user) => {
+      this.user = user;
+      if (user) {
+        this.isAdmin = await this.authService.isAdmin();
+        console.log(this.isAdmin);
+      } else {
+        this.isAdmin = false;
+      }
+    });
+  }
+
+  async ngOnInit(): Promise<void> {
     this.thoughtService.getAllThought().subscribe((data: ThoughtForList[]) => {
       this.thoughts = data
         .map((thought) => {

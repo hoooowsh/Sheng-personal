@@ -3,6 +3,7 @@ import { Auth } from '@angular/fire/auth';
 import { FirebaseApp } from '@angular/fire/app';
 import { GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -68,7 +69,25 @@ export class AuthService {
     if (user) {
       const { email } = user;
       return email;
+    } else {
+      return null;
     }
-    throw new Error('User not authenticated');
+  }
+
+  async isAdmin() {
+    const user = await this.auth.currentUser;
+    if (user) {
+      const { email } = user;
+      if (
+        email != null &&
+        email != undefined &&
+        email === environment.adminEmail
+      ) {
+        return true;
+      }
+      return false;
+    } else {
+      return false;
+    }
   }
 }

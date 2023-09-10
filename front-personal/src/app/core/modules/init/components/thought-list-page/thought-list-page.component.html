@@ -3,7 +3,11 @@
     <table class="table">
       <tr class="header-row">
         <th>Title</th>
-        <th><button class="add-button" (click)="createThought()">+</button></th>
+        <th>
+          <button *ngIf="isAdmin" class="add-button" (click)="createThought()">
+            +
+          </button>
+        </th>
       </tr>
       <tr *ngFor="let thought of thoughts" (click)="onRowClicked(thought)">
         <td>{{ thought.title }}</td>
