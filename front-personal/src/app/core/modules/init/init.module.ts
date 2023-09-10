@@ -13,6 +13,7 @@ import { ThoughtListPageComponent } from './components/thought-list-page/thought
 import { ThoughtAddComponent } from './components/thought-add/thought-add.component';
 import { ThoughtComponent } from './components/thought/thought.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { ExperienceComponent } from './components/experience/experience.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ContactComponent } from './components/contact/contact.component';
     ThoughtAddComponent,
     ThoughtComponent,
     ContactComponent,
+    ExperienceComponent,
   ],
   imports: [
     CommonModule,

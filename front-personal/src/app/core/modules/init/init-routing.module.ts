@@ -5,6 +5,7 @@ import { ThoughtListPageComponent } from './components/thought-list-page/thought
 import { ThoughtComponent } from './components/thought/thought.component';
 import { ThoughtAddComponent } from './components/thought-add/thought-add.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { ExperienceComponent } from './components/experience/experience.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'thought', component: ThoughtListPageComponent },
   { path: 'thought/id/:id', component: ThoughtComponent },
   { path: 'thought/add', component: ThoughtAddComponent },
+  { path: 'experience', component: ExperienceComponent },
   { path: 'contact', component: ContactComponent },
 ];
 
