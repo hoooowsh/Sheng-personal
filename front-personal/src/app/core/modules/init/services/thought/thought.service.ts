@@ -67,6 +67,4 @@ export class ThoughtService {
       httpOptions
     );
   }
-
-  async getCommentsForThought(thoughtId: string) {}
 }

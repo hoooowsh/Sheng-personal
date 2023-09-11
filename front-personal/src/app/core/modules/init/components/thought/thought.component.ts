@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ThoughtService } from '../../services/thought/thought.service';
 import { Thought } from '../../Models/Thought';
 import { AuthService } from '../../services/auth.service';
+import { CommentService } from '../../services/comment/comment.service';
 
 @Component({
   selector: 'app-thought',
@@ -13,12 +14,17 @@ export class ThoughtComponent {
   thought: Thought | null = null;
   user: any = null;
   isAdmin: boolean = false;
+  newComment: string = '';
+  comments: any[] = [];
+  thoughtId: any = '';
   constructor(
     private thoughtService: ThoughtService,
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private commentService: CommentService
   ) {
+    this.thoughtId = this.route.snapshot.paramMap.get('id');
     this.authService.userState.subscribe(async (user) => {
       this.user = user;
       if (user) {
@@ -31,10 +37,9 @@ export class ThoughtComponent {
   }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
+    if (this.thoughtId) {
       // Check if id is not null or undefined
-      this.thoughtService.getOneThought(id).subscribe({
+      this.thoughtService.getOneThought(this.thoughtId).subscribe({
         next: (response) => {
           this.thought = response;
           const dateObject = new Date(this.thought.date * 1000);
@@ -53,7 +58,7 @@ export class ThoughtComponent {
         },
       });
     } else {
-      console.error('Invalid thought ID:', id);
+      console.error('Invalid thought ID:', this.thoughtId);
     }
   }
 
@@ -82,5 +87,28 @@ export class ThoughtComponent {
 
   goBack() {
     this.router.navigate(['/thought']);
+  }
+
+  async addOneComment() {
+    if (this.newComment.trim() === '') {
+      return;
+    }
+
+    const addCommentObservable = await this.commentService.addOneComment(
+      this.thoughtId,
+      'Thoughts',
+      this.newComment,
+      false
+    );
+
+    addCommentObservable.subscribe({
+      next: (response) => {
+        console.log(response);
+        // this.router.navigate(['/thought']);
+      },
+      error: (error) => {
+        console.error('Error adding thought:', error);
+      },
+    });
   }
 }

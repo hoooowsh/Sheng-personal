@@ -57,4 +57,26 @@
       margin-bottom: 10px;
     }
   }
+
+  .comment-container {
+    margin-top: 20px;
+
+    h3 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 100px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: blue;
+      color: white;
+      border: none;
+      padding: 10px;
+    }
+  }
 }

@@ -1,4 +1,5 @@
 <div class="thought">
+  <!-- thought container contents -->
   <div *ngIf="thought">
     <div class="title">
       <h1>{{ thought.title }}</h1>
@@ -17,5 +18,14 @@
         <button *ngIf="isAdmin" (click)="deleteThought()">Delete This</button>
       </div>
     </div>
+  </div>
+
+  <!-- comment container -->
+  <div class="comment-container">
+    <h3>Add a Comment:</h3>
+    <form (submit)="addOneComment()">
+      <textarea [(ngModel)]="newComment" name="newComment"></textarea>
+      <button type="submit">Add Comment</button>
+    </form>
   </div>
 </div>
