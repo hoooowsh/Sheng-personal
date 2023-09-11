@@ -4,18 +4,25 @@ const CommentDAO = require("../Database/DAO/commentDAO");
 const Comment = require("../Database/Model/commentModel");
 const { AppError } = require("../Util/AppError");
 
+/**
+ * Add comment controller. Add comment to database with corresponding userId, and objid
+ * @param {*} req - contains: {objId, objName, content, date, isAnonymous}
+ * @param {*} res - contains: comment id
+ * @param {*} next - next to Error Handler
+ */
 async function addComment(req, res, next) {
   try {
     // getting value from request body
     const {
       tokenUserId,
       tokenUserName,
-      thoughtId,
+      objId,
+      objName,
       content,
       date,
       isAnonymous,
     } = req.body;
-    if (!content || !date || !thoughtId || isAnonymous == undefined) {
+    if (!content || !date || !objId || !objName || isAnonymous == undefined) {
       throw new AppError("Missing required field", 400);
     }
     if (!isAnonymous && (!tokenUserId || !tokenUserName)) {
@@ -38,7 +45,8 @@ async function addComment(req, res, next) {
     // save it to database
     const commentId = await CommentDAO.addComment(
       adminId,
-      thoughtId,
+      objId,
+      objName,
       newComment
     );
     res.status(201).send({ commentId });
@@ -47,14 +55,20 @@ async function addComment(req, res, next) {
   }
 }
 
+/**
+ * Get all comments controller using userId and obj id
+ * @param {*} req - contains: objId, objName
+ * @param {*} res - contains: comments list
+ * @param {*} next - next to Error Handler
+ */
 async function getCommentList(req, res, next) {
   try {
     // get user id and thought id, get data from database
     const { objId, objName } = req.body.objId;
     const userInfo = await UserDAO.getUserByEmail(process.env.ADMIN_EMAIL);
     const userId = userInfo.id;
-
-    // get the comment list
+    const commentList = await CommentDAO.getCommentList(userId, objId, objName);
+    res.status(200).send({ commentList: commentList });
   } catch (error) {
     next(error);
   }

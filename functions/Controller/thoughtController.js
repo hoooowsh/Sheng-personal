@@ -7,7 +7,7 @@ const { isAdmin } = require("../Helper/admin");
 /**
  * Add thought controller. Add thought to database with corresponding userId
  * @param {*} req - contains: title, content, date
- * @param {*} res - contains:
+ * @param {*} res - contains: thought id
  * @param {*} next - next to Error Handler
  */
 async function addThought(req, res, next) {
