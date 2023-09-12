@@ -4,8 +4,13 @@ const {
   FirebaseTokenValidator,
   AuthValidate,
 } = require("../MiddleWare/VerifyToken");
-const { addComment } = require("../Controller/commentController");
+const {
+  addComment,
+  getCommentList,
+} = require("../Controller/commentController");
 
 CommentRoute.post("/add", FirebaseTokenValidator(), AuthValidate, addComment);
+
+CommentRoute.post("/commentList", getCommentList);
 
 module.exports = CommentRoute;

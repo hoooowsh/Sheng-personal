@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 import { environment } from 'src/environments/environment';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -39,6 +40,19 @@ export class CommentService {
       );
     } else {
       throw new Error('User not login');
+    }
+  }
+
+  getAllComments(objId: string, objName: string) {
+    try {
+      return this.http
+        .post<any>(`${environment.backendUrl}/comment/commentList`, {
+          objId: objId,
+          objName: objName,
+        })
+        .pipe(map((response) => response.commentList));
+    } catch (error) {
+      throw new Error('Get all comments error');
     }
   }
 }

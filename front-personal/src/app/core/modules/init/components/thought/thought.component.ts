@@ -52,6 +52,7 @@ export class ThoughtComponent {
           } else {
             console.log('Title is undefined');
           }
+          this.getAllComments();
         },
         error: (error) => {
           console.error('Error during thought retrieval:', error);
@@ -110,5 +111,25 @@ export class ThoughtComponent {
         console.error('Error adding thought:', error);
       },
     });
+  }
+
+  getAllComments() {
+    this.commentService.getAllComments(this.thoughtId, 'Thoughts').subscribe(
+      (data: any[]) => {
+        this.comments = data
+          .map((comment) => {
+            const dateObject = new Date(comment.date * 1000);
+            const humanDateFormat = `${
+              dateObject.getMonth() + 1
+            }/${dateObject.getDate()}/${dateObject.getFullYear()}`;
+            return { ...comment, formattedDate: humanDateFormat };
+          })
+          .sort((a, b) => b.date - a.date);
+        console.log(this.comments);
+      },
+      (error) => {
+        console.error('Error fetching comments:', error);
+      }
+    );
   }
 }

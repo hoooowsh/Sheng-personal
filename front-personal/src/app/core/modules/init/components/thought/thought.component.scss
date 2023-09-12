@@ -92,5 +92,15 @@
         background-color: rgb(1, 156, 61);
       }
     }
+
+    .comment-section {
+      margin-top: 20px;
+
+      .comment-container {
+        border: 1px solid #ccc;
+        margin: 5px;
+        padding: 10px;
+      }
+    }
   }
 }

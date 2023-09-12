@@ -64,7 +64,7 @@ async function addComment(req, res, next) {
 async function getCommentList(req, res, next) {
   try {
     // get user id and thought id, get data from database
-    const { objId, objName } = req.body.objId;
+    const { objId, objName } = req.body;
     const userInfo = await UserDAO.getUserByEmail(process.env.ADMIN_EMAIL);
     const userId = userInfo.id;
     const commentList = await CommentDAO.getCommentList(userId, objId, objName);

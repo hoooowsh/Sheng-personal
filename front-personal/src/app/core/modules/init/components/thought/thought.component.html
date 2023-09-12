@@ -29,5 +29,12 @@
         <button type="submit">Add Comment</button>
       </div>
     </form>
+
+    <div class="comment-section">
+      <div class="comment-container" *ngFor="let comment of comments">
+        <p>{{ comment.formattedDate }}</p>
+        <p>{{ comment.content }}</p>
+      </div>
+    </div>
   </div>
 </div>
