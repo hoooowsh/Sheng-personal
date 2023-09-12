@@ -25,7 +25,9 @@
     <h3>Add a Comment:</h3>
     <form (submit)="addOneComment()">
       <textarea [(ngModel)]="newComment" name="newComment"></textarea>
-      <button type="submit">Add Comment</button>
+      <div class="button-wrapper">
+        <button type="submit">Add Comment</button>
+      </div>
     </form>
   </div>
 </div>

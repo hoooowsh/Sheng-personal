@@ -60,6 +60,10 @@
 
   .comment-container {
     margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
 
     h3 {
       font-size: 1.2em;
@@ -72,11 +76,21 @@
       margin-bottom: 10px;
     }
 
-    button {
-      background-color: blue;
-      color: white;
-      border: none;
-      padding: 10px;
+    .button-wrapper {
+      display: flex;
+      justify-content: flex-end; // This will push the button to the right
+
+      button {
+        background-color: rgb(1, 95, 29);
+        color: white;
+        border: none;
+        padding: 10px;
+        margin-bottom: 20px;
+        cursor: pointer; // Cursor changes to hand when hovered
+      }
+      button:hover {
+        background-color: rgb(1, 156, 61);
+      }
     }
   }
 }
