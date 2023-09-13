@@ -14,7 +14,58 @@ export class TechNoteService {
 
   getAllTechNote(): Observable<ObjForList[]> {
     return this.http
-      .get<any>(`${environment.backendUrl}/thought/thoughtList`)
-      .pipe(map((response) => response.thoughtList));
+      .get<any>(`${environment.backendUrl}/techNote/techNoteList`)
+      .pipe(map((response) => response.techNoteList));
+  }
+
+  getOneTechNote(techNoteId: string): Observable<TechNote> {
+    return this.http
+      .get<any>(`${environment.backendUrl}/techNote/id/${techNoteId}`)
+      .pipe(map((response) => response.techNote));
+  }
+
+  async addOneTechNote(title: string, topic: string, content: string) {
+    const email = await this.authService.getUserEmail();
+    if (email !== environment.adminEmail) {
+      throw new Error('User not authenticated');
+    }
+    const token = await this.authService.getUserToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + token,
+      }),
+    };
+    const currentTimeInSeconds = Math.floor(Date.now() / 1000);
+
+    return this.http.post<any>(
+      `${environment.backendUrl}/techNote/add`,
+      {
+        title: title,
+        topic: topic,
+        content: content,
+        date: currentTimeInSeconds,
+      },
+      httpOptions
+    );
+  }
+
+  async deleteOneTechNote(techNoteId: string) {
+    const email = await this.authService.getUserEmail();
+    if (email !== environment.adminEmail) {
+      throw new Error('User not authenticated');
+    }
+    const token = await this.authService.getUserToken();
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + token,
+      }),
+    };
+    return this.http.post<any>(
+      `${environment.backendUrl}/thought/delete`,
+      {
+        techNoteId: techNoteId,
+      },
+      httpOptions
+    );
   }
 }

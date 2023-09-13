@@ -47,6 +47,7 @@ import { TechNoteListPageComponent } from './components/tech-note-list-page/tech
     HeaderComponent,
     HomepageComponent,
     ThoughtListPageComponent,
+    TechNoteListPageComponent,
   ],
 })
 export class InitModule {}

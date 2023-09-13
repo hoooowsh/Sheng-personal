@@ -1,1 +1,18 @@
-<p>tech-note-list-page works!</p>
+<div class="techNote-list">
+  <div class="techNote-list-container">
+    <table class="table">
+      <tr class="header-row">
+        <th>Title</th>
+        <th>
+          <button *ngIf="isAdmin" class="add-button" (click)="createTechNote()">
+            +
+          </button>
+        </th>
+      </tr>
+      <tr *ngFor="let techNote of techNotes" (click)="onRowClicked(techNote)">
+        <td>{{ techNote.title }}</td>
+        <td>{{ techNote.formattedDate }}</td>
+      </tr>
+    </table>
+  </div>
+</div>
