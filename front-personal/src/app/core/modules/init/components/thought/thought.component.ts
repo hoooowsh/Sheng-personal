@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ThoughtService } from '../../services/thought/thought.service';
-import { Thought } from '../../Models/Thought';
+import { Thought } from '../../Models/Thought.model';
 import { AuthService } from '../../services/auth.service';
 import { CommentService } from '../../services/comment/comment.service';
 

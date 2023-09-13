@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { ThoughtForList } from '../../Models/ThoughtForList.model';
-import { Thought } from '../../Models/Thought';
+import { ObjForList } from '../../Models/ObjForList.model';
+import { Thought } from '../../Models/Thought.model';
 import { AuthService } from '../auth.service';
 
 @Injectable({
@@ -12,7 +12,7 @@ import { AuthService } from '../auth.service';
 export class ThoughtService {
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  getAllThought(): Observable<ThoughtForList[]> {
+  getAllThought(): Observable<ObjForList[]> {
     return this.http
       .get<any>(`${environment.backendUrl}/thought/thoughtList`)
       .pipe(map((response) => response.thoughtList));

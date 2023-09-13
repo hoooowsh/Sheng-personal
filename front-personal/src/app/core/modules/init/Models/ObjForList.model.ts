@@ -1,6 +1,4 @@
-// thought.model.ts
-
-export interface ThoughtForList {
+export interface ObjForList {
   id: string;
   title: string;
   date: number;
