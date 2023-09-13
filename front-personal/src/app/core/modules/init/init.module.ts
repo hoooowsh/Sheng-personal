@@ -14,6 +14,9 @@ import { ThoughtAddComponent } from './components/thought-add/thought-add.compon
 import { ThoughtComponent } from './components/thought/thought.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ExperienceComponent } from './components/experience/experience.component';
+import { TechNoteComponent } from './components/tech-note/tech-note.component';
+import { TechNoteAddComponent } from './components/tech-note-add/tech-note-add.component';
+import { TechNoteListPageComponent } from './components/tech-note-list-page/tech-note-list-page.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { ExperienceComponent } from './components/experience/experience.componen
     ThoughtComponent,
     ContactComponent,
     ExperienceComponent,
+    TechNoteComponent,
+    TechNoteAddComponent,
+    TechNoteListPageComponent,
   ],
   imports: [
     CommonModule,

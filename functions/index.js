@@ -22,6 +22,7 @@ const UserRouter = require("./Route/user");
 const ThoughtRoute = require("./Route/thought");
 const EmailRoute = require("./Route/email");
 const CommentRoute = require("./Route/comment");
+const TechNoteRoute = require("./Route/techNote");
 const { globalErrorHandler } = require("./Helper/errorHandler");
 
 app.get("/test", async (req, res) => {
@@ -39,6 +40,9 @@ app.use("/email", EmailRoute);
 
 // comment routes
 app.use("/comment", CommentRoute);
+
+// techNote routes
+app.use("/techNote", TechNoteRoute);
 
 // global error handler
 app.use(globalErrorHandler);

@@ -1,4 +1,3 @@
-const ThoughtDAO = require("../Database/DAO/thoughtDAO");
 const UserDAO = require("../Database/DAO/userDAO");
 const CommentDAO = require("../Database/DAO/commentDAO");
 const Comment = require("../Database/Model/commentModel");

@@ -190,11 +190,21 @@ module.exports = {
     let result = [];
     switch (condition) {
       case "thoughtList":
-        console.log("hjjj");
         snapshot.forEach((doc) => {
           const data = doc.data();
           result.push({
             id: doc.id,
+            title: data.title,
+            date: data.date,
+          });
+        });
+        return result;
+      case "techNoteList":
+        snapshot.forEach((doc) => {
+          const data = doc.data();
+          result.push({
+            id: doc.id,
+            topic: data.topic,
             title: data.title,
             date: data.date,
           });
