@@ -7,6 +7,8 @@ import { ThoughtAddComponent } from './components/thought-add/thought-add.compon
 import { ContactComponent } from './components/contact/contact.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { TechNoteListPageComponent } from './components/tech-note-list-page/tech-note-list-page.component';
+import { TechNoteComponent } from './components/tech-note/tech-note.component';
+import { TechNoteAddComponent } from './components/tech-note-add/tech-note-add.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,7 +16,9 @@ const routes: Routes = [
   { path: 'thought', component: ThoughtListPageComponent },
   { path: 'techNote', component: TechNoteListPageComponent },
   { path: 'thought/id/:id', component: ThoughtComponent },
+  { path: 'techNote/id/:id', component: TechNoteComponent },
   { path: 'thought/add', component: ThoughtAddComponent },
+  { path: 'techNote/add', component: TechNoteAddComponent },
   { path: 'experience', component: ExperienceComponent },
   { path: 'contact', component: ContactComponent },
 ];

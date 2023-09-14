@@ -1,10 +1,23 @@
 .techNote-list {
-  background-image: url("../../../../../../assets/image/Nier2B.jpg");
+  //   background-image: url("../../../../../../assets/image/Nier2B.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat; // Add this line
   height: 100%; // Change this to 100vh for full viewport height
   width: 100%; // Changed from 100vw to 100%
+
+  .bgVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
   .techNote-list-container {
     position: relative;
     background-color: rgba(97, 97, 97, 0.5);
