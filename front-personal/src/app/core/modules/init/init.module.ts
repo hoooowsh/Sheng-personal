@@ -17,6 +17,8 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { TechNoteComponent } from './components/tech-note/tech-note.component';
 import { TechNoteAddComponent } from './components/tech-note-add/tech-note-add.component';
 import { TechNoteListPageComponent } from './components/tech-note-list-page/tech-note-list-page.component';
+import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
+import { ProjectListPageComponent } from './components/project-list-page/project-list-page.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { TechNoteListPageComponent } from './components/tech-note-list-page/tech
     TechNoteComponent,
     TechNoteAddComponent,
     TechNoteListPageComponent,
+    ProjectDetailComponent,
+    ProjectListPageComponent,
   ],
   imports: [
     CommonModule,

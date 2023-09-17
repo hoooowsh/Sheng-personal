@@ -1,0 +1,75 @@
+.project-list {
+  background-image: url("../../../../../../assets/image/StoneGate.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+
+  .project-list-container {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto;
+    flex-direction: column;
+    background-color: rgba(49, 49, 49, 0.5);
+    gap: 2rem;
+
+    .project-section {
+      margin-bottom: 20px;
+
+      h2 {
+        font-size: 2rem;
+        //   margin-bottom: 10px;
+        font-family: "MuseoModerno", cursive;
+        text-align: center;
+        margin-top: 40px;
+      }
+
+      .work-project-container {
+        padding-bottom: 1rem;
+        background-color: rgb(95, 95, 95, 0.5);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+
+      .side-project-container {
+        background-color: rgb(95, 95, 95, 0.5);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem; /* Adds gap between the containers */
+      }
+
+      .project {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+
+        cursor: pointer;
+        max-width: 350px;
+        height: 200px;
+        width: 100%;
+        background-color: #474747;
+
+        img {
+          width: 350px;
+          height: 200px;
+          max-height: 150px;
+          object-fit: cover; /* Optional: Maintain aspect ratio for images */
+          border-radius: 8px; /* Optional: Add some border radius to images */
+        }
+
+        p {
+          text-align: center;
+          margin-top: 8px; /* Optional: Add some space between image and title */
+          font-family: "Concert One", cursive;
+          color: aliceblue;
+        }
+      }
+    }
+  }
+}
