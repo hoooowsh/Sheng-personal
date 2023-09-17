@@ -5,6 +5,9 @@
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .project-detail-container {
@@ -48,6 +51,12 @@ p {
 .date {
   font-size: 1rem;
   text-align: right;
+  font-family: "Concert One", cursive;
+}
+
+.skill {
+  font-size: 1rem;
+  text-align: left;
   font-family: "Concert One", cursive;
 }
 

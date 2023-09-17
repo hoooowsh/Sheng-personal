@@ -23,7 +23,8 @@ const routes: Routes = [
   { path: 'techNote/add', component: TechNoteAddComponent },
   { path: 'experience', component: ExperienceComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'project/:id', component: ProjectDetailComponent },
+  { path: 'Work-project/:id', component: ProjectDetailComponent },
+  { path: 'Side-project/:id', component: ProjectDetailComponent },
   { path: 'project', component: ProjectListPageComponent },
 ];
 
