@@ -6,3 +6,73 @@
   height: 100%;
   width: 100%;
 }
+
+.project-detail-container {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  margin: 0 auto;
+  flex-direction: column;
+  background-color: rgba(49, 49, 49, 0.5);
+  gap: 9px;
+  text-align: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: "Concert One", cursive;
+}
+
+.image-container {
+  margin-top: 20px;
+  width: 70%;
+  height: 70%;
+}
+
+p {
+  font-size: 1.2rem;
+  //   margin: 10px 0;
+  text-align: left;
+}
+
+.project-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.date {
+  font-size: 1rem;
+  text-align: right;
+  font-family: "Concert One", cursive;
+}
+
+.icons {
+  display: flex;
+  margin-top: 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+  .github-icon,
+  .demo-icon {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    height: 20px;
+    width: 200px;
+    background-color: rgb(128, 128, 128);
+    text-align: center;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+}

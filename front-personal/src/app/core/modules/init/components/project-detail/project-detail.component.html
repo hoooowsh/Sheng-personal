@@ -1,3 +1,23 @@
+<!-- project-detail.component.html -->
+
 <div class="project-detail">
-  <div></div>
+  <div class="project-detail-container">
+    <h1>{{ project.Title }}</h1>
+    <img
+      [src]="project.ImageUrl"
+      class="image-container"
+      alt="{{ project.Title }}"
+    />
+    <p *ngFor="let paragraph of contentParagraphs">{{ paragraph }}</p>
+
+    <div class="date">
+      <p>{{ project.Date }}</p>
+    </div>
+    <div class="project-info">
+      <div class="icons">
+        <a href="{{ project.Github }}" class="github-icon">GitHub</a>
+        <a href="{{ project.Demo }}" class="demo-icon">Demo</a>
+      </div>
+    </div>
+  </div>
 </div>

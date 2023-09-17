@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProjectDetailComponent {
   project: any;
+  contentParagraphs: string[] | undefined;
   constructor(
     private route: ActivatedRoute,
     private projectService: ProjectService
@@ -17,5 +18,6 @@ export class ProjectDetailComponent {
   ngOnInit() {
     const projectId = this.route.snapshot.paramMap.get('id');
     this.project = this.projectService.getWorkingProjectById(projectId);
+    this.contentParagraphs = this.project.Content.split('||');
   }
 }
