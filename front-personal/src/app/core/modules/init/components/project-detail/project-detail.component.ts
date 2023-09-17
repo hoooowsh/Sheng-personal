@@ -16,8 +16,13 @@ export class ProjectDetailComponent {
   ) {}
 
   ngOnInit() {
+    const urlSegment = this.route.snapshot.url[0].path;
     const projectId = this.route.snapshot.paramMap.get('id');
-    this.project = this.projectService.getWorkingProjectById(projectId);
+    if (urlSegment === 'Work-project') {
+      this.project = this.projectService.getWorkingProjectById(projectId);
+    } else if (urlSegment === 'Side-project') {
+      this.project = this.projectService.getSideProjectById(projectId);
+    }
     this.contentParagraphs = this.project.Content.split('||');
   }
 }
