@@ -19,7 +19,7 @@ export class ProjectService {
       'cyauth',
       {
         Title: 'CyAuth',
-        ImageUrl: '../../../../../../assets/projects/CyShare.PNG',
+        ImageUrl: '../../../../../../assets/projects/CyAuth.PNG',
         Content: '',
         Github: '',
         Demo: '',

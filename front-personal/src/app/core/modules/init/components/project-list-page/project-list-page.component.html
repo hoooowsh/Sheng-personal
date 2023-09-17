@@ -4,7 +4,7 @@
       <h2>Career Highlights</h2>
       <div class="work-project-container">
         <div *ngFor="let project of workingProjects" class="project">
-          <a [routerLink]="['/projects', project.Id]">
+          <a [routerLink]="['/project', project.Id]">
             <img [src]="project.ImageUrl" alt="{{ project.Title }}" />
             <p>{{ project.Title }}</p>
           </a>
@@ -14,7 +14,7 @@
       <h2>Side Projects</h2>
       <div class="side-project-container">
         <div *ngFor="let project of sideProjects" class="project">
-          <a [routerLink]="['/projects', project.Id]">
+          <a [routerLink]="['/project', project.Id]">
             <img [src]="project.ImageUrl" alt="{{ project.Title }}" />
             <p>{{ project.Title }}</p>
           </a>
