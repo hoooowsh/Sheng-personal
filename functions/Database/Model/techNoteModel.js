@@ -1,9 +1,9 @@
 class TechNote {
   /**
    * TechNote model constructor
-   * @param {String} title - the title of the thought
-   * @param {String} topic - the topic of the topic
-   * @param {String} content - the content of the thought
+   * @param {String} title - the title of the techNote
+   * @param {String} topic - the topic of the techNote
+   * @param {String} content - the content of the techNote
    * @param {String} date - date for storing date
    */
   constructor(title, topic, content, date) {

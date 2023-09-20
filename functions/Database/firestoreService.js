@@ -210,6 +210,17 @@ module.exports = {
           });
         });
         return result;
+      case "leetcodeList":
+        snapshot.forEach((doc) => {
+          const data = doc.data();
+          result.push({
+            id: doc.id,
+            topic: data.topic,
+            title: data.title,
+            date: data.date,
+          });
+        });
+        return result;
       default:
         return snapshot;
     }

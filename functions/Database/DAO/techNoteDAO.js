@@ -5,7 +5,7 @@ class TechNoteDAO {
   /**
    * Get techNote using userId, techNoteId as keys
    * @param {String} userId  - userId to search user in database
-   * @param {String} techNoteId - techNoteId to search thought in database
+   * @param {String} techNoteId - techNoteId to search techNote in database
    * @returns TechNote object if exist, or null if does not exist
    */
   async getTechNoteById(userId, techNoteId) {
