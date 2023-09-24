@@ -28,7 +28,7 @@ class LeetcodeDAO {
       "Users",
       userId,
       "Leetcodes",
-      "leetcodeLists"
+      "leetcodeList"
     );
     return result;
   }

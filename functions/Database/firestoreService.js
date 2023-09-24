@@ -221,6 +221,16 @@ module.exports = {
           });
         });
         return result;
+      case "journeysList":
+        snapshot.forEach((doc) => {
+          const data = doc.data();
+          result.push({
+            id: doc.id,
+            title: data.title,
+            date: data.date,
+          });
+        });
+        return result;
       default:
         return snapshot;
     }
