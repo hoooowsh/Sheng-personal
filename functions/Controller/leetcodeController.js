@@ -23,7 +23,7 @@ async function addLeetcode(req, res, next) {
       throw new AppError("You are not a master teapot", 401);
     }
 
-    // add techNote to database and respond to frontend
+    // add Leetcode to database and respond to frontend
     const newLeetcode = new Leetcode(title, topic, content, date);
     const leetcodeId = await LeetcodeDAO.addTechNote(tokenUserId, newLeetcode);
     res.status(201).send({ leetcodeId: leetcodeId });
@@ -63,7 +63,7 @@ async function getLeetcode(req, res, next) {
 async function getLeetcodeList(req, res, next) {
   try {
     // first get admin Id
-    const userInfo = await LeetcodeDAO.getUserByEmail(process.env.ADMIN_EMAIL);
+    const userInfo = await UserDAO.getUserByEmail(process.env.ADMIN_EMAIL);
     const userId = userInfo.id;
     const leetcodeList = await LeetcodeDAO.getTechNoteList(userId);
     res.status(200).send({ leetcodeList: leetcodeList });
