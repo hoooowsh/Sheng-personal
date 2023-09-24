@@ -13,9 +13,9 @@ const {
 
 LeetcodeRoute.post("/add", FirebaseTokenValidator(), AuthValidate, addLeetcode);
 
-LeetcodeRoute.get("/id/:techNoteId", getLeetcode);
+LeetcodeRoute.get("/id/:leetcodeId", getLeetcode);
 
-LeetcodeRoute.get("/techNoteList", getLeetcodeList);
+LeetcodeRoute.get("/leetcodeList", getLeetcodeList);
 
 LeetcodeRoute.post(
   "/delete",
