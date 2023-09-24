@@ -1,6 +1,35 @@
+.contact-page {
+  height: 100%; // Change this to 100vh for full viewport height
+  width: 100%; // Changed from 100vw to 100%
+
+  #background-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+}
+
 .contact-container {
   width: 70%;
+  height: 81vh;
   margin: auto;
+  background-color: rgb(133, 133, 133, 0.5);
+  position: relative; /* Add this */
+  z-index: 0; /* Add this to ensure it's above the video background */
+}
+
+.contact-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  min-width: 80%;
 }
 
 .row {

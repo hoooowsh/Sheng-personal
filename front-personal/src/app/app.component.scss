@@ -19,4 +19,5 @@
   background-color: #333; // Or any dark color you prefer
   color: #fff; // Ensuring text is readable against the dark background
   overflow-y: auto; // Allows for scrolling if the content exceeds the viewport height
+  z-index: -1;
 }
