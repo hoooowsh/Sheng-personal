@@ -3,7 +3,6 @@ const TechNoteDAO = require("../Database/DAO/techNoteDAO");
 const TechNote = require("../Database/Model/techNoteModel");
 const AppError = require("../Util/AppError");
 const { isAdmin } = require("../Helper/admin");
-const techNoteDAO = require("../Database/DAO/techNoteDAO");
 
 /**
  * Add techNote controller. Add techNote to database with corresponding userId
@@ -66,7 +65,7 @@ async function gettechNoteList(req, res, next) {
     // first get admin Id
     const userInfo = await UserDAO.getUserByEmail(process.env.ADMIN_EMAIL);
     const userId = userInfo.id;
-    const techNoteList = await techNoteDAO.getTechNoteList(userId);
+    const techNoteList = await TechNoteDAO.getTechNoteList(userId);
     res.status(200).send({ techNoteList: techNoteList });
   } catch (error) {
     next(error);
@@ -85,7 +84,7 @@ async function deleteTechNote(req, res, next) {
     if (!isAdmin(tokenEmail)) {
       throw new AppError("You are not a master teapot", 401);
     }
-    await techNoteDAO.deleteTechNote(tokenUserId, techNoteId);
+    await TechNoteDAO.deleteTechNote(tokenUserId, techNoteId);
     res.status(200).send({});
   } catch (error) {
     next(error);
