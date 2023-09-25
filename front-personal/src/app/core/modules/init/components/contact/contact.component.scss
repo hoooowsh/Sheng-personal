@@ -1,6 +1,7 @@
 .contact-page {
   height: 100%; // Change this to 100vh for full viewport height
   width: 100%; // Changed from 100vw to 100%
+  font-family: "Raleway", sans-serif;
 
   #background-video {
     width: 100%;
@@ -21,7 +22,7 @@
   margin: auto;
   background-color: rgb(133, 133, 133, 0.5);
   position: relative; /* Add this */
-  z-index: 0; /* Add this to ensure it's above the video background */
+  z-index: 1;
 }
 
 .contact-box {
@@ -39,13 +40,22 @@
 }
 
 .column {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5rem;
   flex: 1;
+}
+
+.contact-font {
+  font-family: "Raleway", sans-serif;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 label {
   display: inline-block;
-  margin-bottom: 10px;
-  font-weight: bold;
+  // font-family: "Raleway", sans-serif;
+  // margin-bottom: 10px;
+  // font-weight: bold;
 }
 
 input,
@@ -53,6 +63,7 @@ textarea {
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
+  border-radius: 10px; /* Add this to round the corners */
 }
 
 textarea {

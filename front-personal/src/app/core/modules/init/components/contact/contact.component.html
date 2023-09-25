@@ -13,7 +13,9 @@
       <form (ngSubmit)="submitContactForm()">
         <div class="row">
           <div class="column">
-            <label for="email">Email:</label>
+            <div class="contact-font">
+              <label for="email" class="contact-font">Email:</label>
+            </div>
             <input
               type="email"
               id="email"
@@ -23,7 +25,10 @@
             />
           </div>
           <div class="column">
-            <label for="name">Name:</label>
+            <div class="contact-font">
+              <label for="name">Name:</label>
+            </div>
+
             <input
               type="text"
               id="name"
