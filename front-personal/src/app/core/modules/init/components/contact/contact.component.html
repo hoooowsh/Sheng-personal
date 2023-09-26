@@ -1,56 +1,59 @@
 <div class="contact-page">
   <div class="contact-container">
     <div class="contact-box">
-      <form (ngSubmit)="submitContactForm()">
+      <form (ngSubmit)="submitContactForm()" #contactForm="ngForm">
         <div class="row">
           <div class="column">
-            <div class="contact-font">
-              <label for="email" class="contact-font">Email:</label>
-            </div>
+            <label for="email">Email:</label>
             <input
               type="email"
               id="email"
               [(ngModel)]="contact.email"
               name="email"
               required
+              #email="ngModel"
             />
           </div>
           <div class="column">
-            <div class="contact-font">
-              <label for="name">Name:</label>
-            </div>
-
+            <label for="name">Name:</label>
             <input
               type="text"
               id="name"
               [(ngModel)]="contact.name"
               name="name"
               required
+              #name="ngModel"
             />
           </div>
         </div>
 
         <div class="row">
-          <label for="phone">Phone:</label>
-          <input
-            type="tel"
-            id="phone"
-            [(ngModel)]="contact.phone"
-            name="phone"
-          />
+          <div class="column">
+            <label for="phone">Phone:</label>
+            <input
+              type="tel"
+              id="phone"
+              [(ngModel)]="contact.phone"
+              name="phone"
+              #phone="ngModel"
+            />
+          </div>
         </div>
 
         <div class="row">
-          <label for="message">Message:</label>
-          <textarea
-            id="message"
-            [(ngModel)]="contact.message"
-            name="message"
-            required
-          ></textarea>
+          <div class="column">
+            <label for="message">Message:</label>
+            <textarea
+              id="message"
+              [(ngModel)]="contact.message"
+              name="message"
+              required
+              #message="ngModel"
+            ></textarea>
+          </div>
         </div>
 
-        <button type="submit">Send</button>
+        <button type="submit" [disabled]="!contactForm.form.valid">Send</button>
       </form>
     </div>
   </div>
