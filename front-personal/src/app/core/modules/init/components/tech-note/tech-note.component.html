@@ -1,1 +1,41 @@
-<p>tech-note works!</p>
+<div class="technote">
+  <!-- thought container contents -->
+  <div *ngIf="techNote">
+    <div class="title">
+      <h1>{{ techNote.title }}</h1>
+    </div>
+    <div class="content">
+      <p>{{ techNote.content }}</p>
+    </div>
+    <div class="date">
+      <p>Date: {{ techNote.formattedDate }}</p>
+    </div>
+    <div class="button-container">
+      <div class="goback_button">
+        <button (click)="goBack()">Go Back</button>
+      </div>
+      <div class="delete-button">
+        <button *ngIf="isAdmin" (click)="deleteTechNote()">Delete This</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- comment container -->
+  <div class="comment-container">
+    <h3>Add a Comment:</h3>
+    <form (submit)="addOneComment()">
+      <textarea [(ngModel)]="newComment" name="newComment"></textarea>
+      <div class="button-wrapper">
+        <button type="submit">Add Comment</button>
+      </div>
+    </form>
+
+    <div class="comment-section">
+      <div class="comment-container" *ngFor="let comment of comments">
+        <p>{{ comment.ownerName }}</p>
+        <p>{{ comment.formattedDate }}</p>
+        <p>{{ comment.content }}</p>
+      </div>
+    </div>
+  </div>
+</div>

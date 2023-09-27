@@ -1,0 +1,107 @@
+.technote {
+  position: relative;
+  max-width: 70%;
+
+  margin: 0 auto;
+  background-color: rgb(97, 97, 97);
+  .title {
+    text-align: center;
+    font-family: "Concert One", cursive;
+  }
+
+  .content {
+    text-align: left;
+    font-family: "Concert One", cursive;
+    padding-left: 10px;
+  }
+
+  .date {
+    text-align: justify;
+    font-family: "Concert One", cursive;
+    padding-left: 10px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+
+    .delete-button,
+    .goback_button {
+      button {
+        background-color: darkred;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer; // Cursor changes to hand when hovered
+        transition: background-color 0.3s; // Smooth transition for background color
+      }
+
+      button:hover {
+        background-color: red; // Background color changes to red when hovered
+      }
+    }
+
+    .delete-button {
+      margin-right: 10px; // Add a small gap to the right edge
+      margin-bottom: 10px;
+    }
+    .goback_button {
+      button {
+        background-color: rgb(0, 62, 112);
+      }
+
+      button:hover {
+        background-color: rgb(8, 119, 209);
+      }
+      margin-left: 10px; // Add a small gap to the left edge
+      margin-bottom: 10px;
+    }
+  }
+
+  .comment-container {
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 100px;
+      margin-bottom: 10px;
+    }
+
+    .button-wrapper {
+      display: flex;
+      justify-content: flex-end; // This will push the button to the right
+
+      button {
+        background-color: rgb(1, 95, 29);
+        color: white;
+        border: none;
+        padding: 10px;
+        margin-bottom: 20px;
+        cursor: pointer; // Cursor changes to hand when hovered
+      }
+      button:hover {
+        background-color: rgb(1, 156, 61);
+      }
+    }
+
+    .comment-section {
+      margin-top: 20px;
+
+      .comment-container {
+        border: 1px solid #000000;
+        background-color: #424242;
+        margin: 5px;
+        padding: 10px;
+      }
+    }
+  }
+}
