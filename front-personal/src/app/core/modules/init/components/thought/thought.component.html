@@ -32,6 +32,7 @@
 
     <div class="comment-section">
       <div class="comment-container" *ngFor="let comment of comments">
+        <p>{{ comment.ownerName }}</p>
         <p>{{ comment.formattedDate }}</p>
         <p>{{ comment.content }}</p>
       </div>

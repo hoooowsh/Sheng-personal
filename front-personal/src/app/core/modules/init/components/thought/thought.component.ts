@@ -118,6 +118,7 @@ export class ThoughtComponent {
       (data: any[]) => {
         this.comments = data
           .map((comment) => {
+            console.log('this is comment', comment);
             const dateObject = new Date(comment.date * 1000);
             const humanDateFormat = `${
               dateObject.getMonth() + 1
