@@ -19,6 +19,9 @@ import { TechNoteAddComponent } from './components/tech-note-add/tech-note-add.c
 import { TechNoteListPageComponent } from './components/tech-note-list-page/tech-note-list-page.component';
 import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
 import { ProjectListPageComponent } from './components/project-list-page/project-list-page.component';
+import { LeetcodeListPageComponent } from './components/leetcode-list-page/leetcode-list-page.component';
+import { LeetcodeAddComponent } from './components/leetcode-add/leetcode-add.component';
+import { LeetcodeComponent } from './components/leetcode/leetcode.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,9 @@ import { ProjectListPageComponent } from './components/project-list-page/project
     TechNoteListPageComponent,
     ProjectDetailComponent,
     ProjectListPageComponent,
+    LeetcodeListPageComponent,
+    LeetcodeAddComponent,
+    LeetcodeComponent,
   ],
   imports: [
     CommonModule,
