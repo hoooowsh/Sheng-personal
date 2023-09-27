@@ -61,7 +61,7 @@ export class TechNoteService {
       }),
     };
     return this.http.post<any>(
-      `${environment.backendUrl}/thought/delete`,
+      `${environment.backendUrl}/techNote/delete`,
       {
         techNoteId: techNoteId,
       },
