@@ -22,6 +22,9 @@ import { ProjectListPageComponent } from './components/project-list-page/project
 import { LeetcodeListPageComponent } from './components/leetcode-list-page/leetcode-list-page.component';
 import { LeetcodeAddComponent } from './components/leetcode-add/leetcode-add.component';
 import { LeetcodeComponent } from './components/leetcode/leetcode.component';
+import { JourneyListPageComponent } from './components/journey-list-page/journey-list-page.component';
+import { JourneyAddComponent } from './components/journey-add/journey-add.component';
+import { JourneyComponent } from './components/journey/journey.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { LeetcodeComponent } from './components/leetcode/leetcode.component';
     LeetcodeListPageComponent,
     LeetcodeAddComponent,
     LeetcodeComponent,
+    JourneyListPageComponent,
+    JourneyAddComponent,
+    JourneyComponent,
   ],
   imports: [
     CommonModule,
