@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { ThoughtService } from '../../services/thought/thought.service';
 import { Thought } from '../../Models/Thought.model';
 import { AuthService } from '../../services/auth.service';
@@ -22,7 +23,8 @@ export class ThoughtComponent {
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService,
-    private commentService: CommentService
+    private commentService: CommentService,
+    private location: Location
   ) {
     this.thoughtId = this.route.snapshot.paramMap.get('id');
     this.authService.userState.subscribe(async (user) => {
@@ -104,8 +106,8 @@ export class ThoughtComponent {
 
     addCommentObservable.subscribe({
       next: (response) => {
-        console.log(response);
-        // this.router.navigate(['/thought']);
+        this.getAllComments();
+        this.newComment = '';
       },
       error: (error) => {
         console.error('Error adding thought:', error);
