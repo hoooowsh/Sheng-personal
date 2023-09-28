@@ -14,9 +14,9 @@ export class TechNoteAddComponent {
     topic: '',
     content: '',
   };
-
   user: any = null;
   isAdmin: boolean = false;
+
   constructor(
     private techNoteService: TechNoteService,
     private router: Router,
@@ -58,7 +58,9 @@ export class TechNoteAddComponent {
           console.error('Error adding thought:', error);
         },
       });
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   adjustTextarea(event: Event): void {
