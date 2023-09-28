@@ -25,7 +25,7 @@ async function addLeetcode(req, res, next) {
 
     // add Leetcode to database and respond to frontend
     const newLeetcode = new Leetcode(title, topic, content, date);
-    const leetcodeId = await LeetcodeDAO.addTechNote(tokenUserId, newLeetcode);
+    const leetcodeId = await LeetcodeDAO.addLeetcode(tokenUserId, newLeetcode);
     res.status(201).send({ leetcodeId: leetcodeId });
   } catch (error) {
     next(error);
@@ -47,7 +47,7 @@ async function getLeetcode(req, res, next) {
     const userId = userInfo.id;
 
     // get leetcode using admin Id and leetcode Id
-    const leetcode = await LeetcodeDAO.getTechNoteById(userId, leetcodeId);
+    const leetcode = await LeetcodeDAO.getLeetcodeById(userId, leetcodeId);
     res.status(200).send({ leetcode: leetcode });
   } catch (error) {
     next(error);
@@ -65,7 +65,7 @@ async function getLeetcodeList(req, res, next) {
     // first get admin Id
     const userInfo = await UserDAO.getUserByEmail(process.env.ADMIN_EMAIL);
     const userId = userInfo.id;
-    const leetcodeList = await LeetcodeDAO.getTechNoteList(userId);
+    const leetcodeList = await LeetcodeDAO.getLeetcodeList(userId);
     res.status(200).send({ leetcodeList: leetcodeList });
   } catch (error) {
     next(error);

@@ -1,1 +1,18 @@
-<p>leetcode-list-page works!</p>
+<div class="leetcode-list">
+  <div class="leetcode-list-container">
+    <table class="table">
+      <tr class="header-row">
+        <th>Title</th>
+        <th>
+          <button *ngIf="isAdmin" class="add-button" (click)="createLeetcode()">
+            +
+          </button>
+        </th>
+      </tr>
+      <tr *ngFor="let leetcode of leetcodes" (click)="onRowClicked(leetcode)">
+        <td>{{ leetcode.title }}</td>
+        <td>{{ leetcode.formattedDate }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

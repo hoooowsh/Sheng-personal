@@ -1,0 +1,62 @@
+.leetcode-list {
+  background-image: url("../../../../../../assets/image/dancer.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat; // Add this line
+  min-height: 82vh; // or set a specific height like "500px" or similar
+  width: 100%;
+
+  .leetcode-list-container {
+    position: relative;
+    background-color: rgba(97, 97, 97, 0.5);
+    max-width: 50%; /* Adjust as needed */
+    margin: 0 auto;
+  }
+
+  .add-button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .table {
+    width: 100%;
+    max-width: 100%; /* Adjust as needed */
+    margin: auto; /* Center the table */
+    border-collapse: collapse;
+    color: white;
+  }
+
+  .table th,
+  .table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  /* Resetting the cursor and background color for the header row */
+  .header-row {
+    cursor: default;
+    position: relative;
+    text-align: left;
+    background-color: #505050; /* Darker background color */
+  }
+
+  /* No hover effect for the header row */
+  .header-row:hover {
+    background-color: #505050; /* Keeps the background color unchanged */
+  }
+
+  /* To align the last cell to the right */
+  .table tr td:last-child {
+    text-align: right;
+  }
+
+  /* Only apply the hover effect to rows that are NOT header rows */
+  .table tr:not(.header-row):hover {
+    background-color: #757575;
+    cursor: pointer;
+  }
+}
