@@ -16,4 +16,7 @@ Angular, NodeJS, Firebase
 
 1. Maybe add dynamic image for journey/leetcode etc.
 2. Add micro service for my plans using C# and MySQL and host it using Azure
-3. Add some other micro service using GoLang
+3. Add some other micro service using GoLang and MongoDB and host it using AWS
+4. Add tests and CICD
+5. Use docker? not sure if docker is needed for firebase
+6. Maybe do something with mobile apps before my Apple developer account expires
