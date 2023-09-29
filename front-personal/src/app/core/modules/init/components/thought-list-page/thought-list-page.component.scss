@@ -3,7 +3,7 @@
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat; // Add this line
-  height: 100%; // Change this to 100vh for full viewport height
+  min-height: 82vh; // or set a specific height like "500px" or similar
   width: 100%; // Changed from 100vw to 100%
   .thought-list-container {
     position: relative;

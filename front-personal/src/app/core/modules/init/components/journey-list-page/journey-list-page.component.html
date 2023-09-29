@@ -1,1 +1,18 @@
-<p>journey-list-page works!</p>
+<div class="journey-list">
+  <div class="journey-list-container">
+    <table class="table">
+      <tr class="header-row">
+        <th>Title</th>
+        <th>
+          <button *ngIf="isAdmin" class="add-button" (click)="createJourney()">
+            +
+          </button>
+        </th>
+      </tr>
+      <tr *ngFor="let journey of journeys" (click)="onRowClicked(journey)">
+        <td>{{ journey.title }}</td>
+        <td>{{ journey.formattedDate }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -62,8 +62,6 @@ import { JourneyComponent } from './components/journey/journey.component';
     NavbarComponent,
     HeaderComponent,
     HomepageComponent,
-    ThoughtListPageComponent,
-    TechNoteListPageComponent,
   ],
 })
 export class InitModule {}
