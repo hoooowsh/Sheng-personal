@@ -221,7 +221,7 @@ module.exports = {
           });
         });
         return result;
-      case "journeysList":
+      case "journeyList":
         snapshot.forEach((doc) => {
           const data = doc.data();
           result.push({

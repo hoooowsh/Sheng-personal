@@ -33,6 +33,7 @@ export class JourneyListPageComponent {
 
   async ngOnInit(): Promise<void> {
     this.journeyService.getAllJourney().subscribe((data: ObjForList[]) => {
+      console.log(data + 'data');
       this.journeys = data
         .map((journey) => {
           const dateObject = new Date(journey.date * 1000);

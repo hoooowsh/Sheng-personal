@@ -55,7 +55,9 @@ export class ThoughtAddComponent {
           console.error('Error adding thought:', error);
         },
       });
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   adjustTextarea(event: Event): void {
