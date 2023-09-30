@@ -20,3 +20,8 @@ Angular, NodeJS, Firebase
 4. Add tests and CICD
 5. Use docker? not sure if docker is needed for firebase
 6. Maybe do something with mobile apps before my Apple developer account expires
+
+# TODO 2
+
+1. loading animation
+2. seperate paragraphs
